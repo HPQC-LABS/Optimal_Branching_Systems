@@ -29,9 +29,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -44,6 +45,7 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -55,6 +57,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -76,821 +82,99 @@
 \begin_body
 
 \begin_layout Standard
-#LyX 2.3 created this file.
- For more info see http://www.lyx.org/
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-lyxformat 544 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_document 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_header 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-save_transient_properties true 
-\backslash
-origin unavailable 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-textclass article 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_default_options true
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-maintain_unincluded_children false 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-language english
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-language_package default 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-inputencoding auto 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-fontencoding global
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_roman "default" "default"
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_sans "default" "default"
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_typewriter "default" "default"
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_math "auto" "auto" 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_default_family default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_non_tex_fonts false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_sc false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_osf false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_sf_scale 100 100
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-font_tt_scale 100 100
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_microtype false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_dash_ligatures true
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-graphics default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-default_output_format default 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-output_sync 0
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-bibtex_command default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-index_command default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-paperfontsize default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_hyperref false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-papersize default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_geometry false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package amsmath 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package amssymb 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package cancel 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package esint 1 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package mathdots 1 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package mathtools 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package mhchem 1 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package stackrel 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package stmaryrd 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_package undertilde 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-cite_engine basic
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-cite_engine_type default 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-biblio_style plain
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_bibtopic false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_indices false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-paperorientation portrait
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-suppress_date false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-justification true
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_refstyle 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-use_minted 0
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-index Index
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-shortcut idx
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-color #008000
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_index
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-secnumdepth 3
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-tocdepth 3
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-paragraph_separation indent
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-paragraph_indentation default 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-is_math_indent 0 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-math_numbering_side default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-quotes_style english
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-dynamic_quotes 0
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-papercolumns 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-papersides 1
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-paperpagestyle default
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-tracking_changes false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-output_changes false
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-html_math_output 0
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-html_css_as_file 0
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-html_be_strict false 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_header
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_body
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_layout Standard For any graph
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+For any graph 
 \begin_inset Formula $G$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
 , a matching 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
 \begin_inset Formula $J$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-in 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+ in 
 \begin_inset Formula $G$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-means a subset 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula.
+ means a subset 
 \begin_inset Formula $J$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-of the edges such that each node is hit by at most one edge of
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+ of the edges such that each node is hit by at most one edge of 
 \begin_inset Formula $J$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
 .
  Let 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
 \begin_inset Formula $P(G)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-be the polytope whose vertices are the 0,1 vectors of the matchings in
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+ be the polytope whose vertices are the 0,1 vectors of the matchings in
+ 
 \begin_inset Formula $G$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
 .
  The Konig-Egervary Theorem [1931] about the optimum assignment problem,
- (the prototype of matroid-polytope intersection), implies: When
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+ (the prototype of matroid-polytope intersection), implies: When 
 \begin_inset Formula $G$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-is bipartite, the convex hull of the 0,1 vectors of the matchings in
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula 
+ is bipartite, the convex hull of the 0,1 vectors of the matchings in 
 \begin_inset Formula $G$
 \end_inset
 
-
+ is:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(G)={x≥0:\text{for each node \ensuremath{v} of }G,\sum(x_{e}:\text{edges \ensuremath{e} hitting node \ensuremath{v}})≤1}.
+\end{equation}
 
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-is:
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_layout
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_layout Standard 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_inset Formula
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin{equation}
-\begin_inset Formula $P(G)={x≥0\ensuremath{}}$
 \end_inset
 
-:
-\end_layout
 
-\begin_layout Standard
-
-\backslash
-text{for each node
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-ensuremath{v} of }G,
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-sum(xe:
-\backslash
-text{edges 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-ensuremath{e} hitting node
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-ensuremath{v}})≤1}.
- 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end{equation}
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_inset
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_layout
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-begin_layout Standard
 \end_layout
 
 \begin_layout Standard
 Indeed this system of inequalities is “totally dual integral (TDI)”.
  I think that the K-E theory is the first instance of linear programming
  duality.
+ The way they say the K-E Theorem is: The maximum total of given weights
  
-\end_layout
+\begin_inset Formula $c_{e}$
+\end_inset
 
-\begin_layout Standard
-.
-\end_layout
+ of the edges 
+\begin_inset Formula $e$
+\end_inset
 
-\begin_layout Standard
-The way they say the K-E Theorem is: The maximum total of given weights
- ce of the edges e of a matching in a bipartite G = the min sum 
-\begin_inset Formula $Σyv$
+ of a matching in a bipartite G = the min sum 
+\begin_inset Formula $Σy_{v}$
 \end_inset
 
  of integers 
-\begin_inset Formula $yv≥0$
+\begin_inset Formula $y_{v}≥0$
 \end_inset
 
- assigned to the nodes v of G so that for each edge e of G, 
-\begin_inset Formula $yv_{1}+yv2≥ce$
+ assigned to the nodes 
+\begin_inset Formula $v$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ so that for each edge 
+\begin_inset Formula $e$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $y_{v_{1}}+y_{v2}≥c_{e}$
 \end_inset
 
  where 
@@ -901,26 +185,42 @@ The way they say the K-E Theorem is: The maximum total of given weights
 \begin_inset Formula $v_{2}$
 \end_inset
 
- are the nodes hit by edge e.
- This follows from the above inequality system being TDI, and conversely
+ are the nodes hit by edge 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This follows from the above inequality system being TDI, and conversely
  this minmax equality implies that the inequality system is TDI.
  However in 1931 the LP theory connecting the two were not known.
  Much of combinatorial optimization in the 1950s by Alan Hoffman, David
  Gale, Harold Kuhn, Ray Fulkerson, George Dantzig, and others, is closely
  related to K-E.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-I will indicate the story of how my good luck under Alan Goldman was to
+ I will indicate the story of how my good luck under Alan Goldman was to
  generalize K-E to non-bipartite graphs, and also to “matroid intersections”.
- -------------------------------------------------------------------------------
- ----------------------- NP is the set of predicates which for the instances
- that are true there is an easy proof.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NP is the set of predicates which for the instances that are true there
+ is an easy proof.
  coNP is the set of predicates which for the instances that are not true
  there is an easy proof that they are not true.
  P is the set of predicates for which there is a “good algorithm” to decide
@@ -931,7 +231,10 @@ I will indicate the story of how my good luck under Alan Goldman was to
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -943,40 +246,54 @@ NP and P have origins in “the marriage theorem”, a corollary of the bipartit
  The input to this marriage problem is a bipartite graph G with boy nodes,
  girl nodes, and edges between them representing love.
  A possible legal marriage of some of the girls to some of the boys is represent
- ed by a subset M of the edges of G, which is a matching.
+ ed by a subset 
+\begin_inset Formula $M$
+\end_inset
+
+ of the edges of 
+\begin_inset Formula $G$
+\end_inset
+
+, which is a matching.
  The matchmaker’s problem is to find a matching which hits all the girl
  nodes Or else prove to the parents that there is none.
- The Marriage Theorem: Either 
-\begin_inset Formula $A(G)=[Thereisawayforthegirlstomarrydistinctboystheylove]$
-\end_inset
-
- or else 
-\begin_inset Formula $B(G)=[ThereisasubsetSofthegirlswhichisbiggerthanthesetofboyswhosomeoneinSloves]$
-\end_inset
-
-.
- Not both.
+ The Marriage Theorem: Either: 
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset Formula 
+\begin{align}
+A(G) & =[\text{There is a way for the girls to marry distinct boys they love}]\text{ or else}\\
+B(G) & =\text{[There is a subset \ensuremath{S} of the girls which is bigger than the set of boys who someone in \ensuremath{S} loves],}
+\end{align}
+
+\end_inset
+
+Not both.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 In other words the Marriage Theorem is: 
-\begin_inset Formula $A(G)=notB(G$
+\begin_inset Formula $A(G)=\text{not}B(G$
 \end_inset
 
 ).
  And so
-\begin_inset Formula $A(G)ϵNP∩coNP$
+\begin_inset Formula $A(G)\in\text{NP}∩\text{co}\text{NP}$
 \end_inset
 
 , since both 
 \begin_inset Formula $A(G)$
 \end_inset
 
- and
+ and 
 \begin_inset Formula $B(G)$
 \end_inset
 
@@ -985,18 +302,21 @@ In other words the Marriage Theorem is:
  A gorgeous application of the marriage theorem is the following magic trick:
  Deal a deck of cards into 13 piles of 4 cards each.
  Select one card from each pile so that no value (Ace through King) is repeated.
- This can always been done, no matter how the cards were originally dealt
- ! Matt deduces this from the Marriage Theorem said in a way which pure
- mathies love: The girls can marry distinct boys they love if and only for
- every subset S of the girls, 
-\begin_inset Formula $│S│≥thenumberofboyswhichStogetherloves$
+ This can always been done, no matter how the cards were originally dealt!
+ Matt deduces this from the Marriage Theorem said in a way which pure mathies
+ love: The girls can marry distinct boys they love if and only for every
+ subset S of the girls, 
+\begin_inset Formula $│S│≥\text{the number of boys which \ensuremath{S} to get her loves}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1012,14 +332,17 @@ While I was trying to assign radio frequencies to airports, my reading this
  Thinking about all of this in 1960, under Alan Goldman’s supervision, it
  occurred to me that maybe a general predicate is in P whenever it is in
  
-\begin_inset Formula $NP∩coNP$
+\begin_inset Formula $\text{NP}∩\text{coNP}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1041,11 +364,19 @@ He liked that, and let me not worry so much about airports.
 \end_inset
 
  of linear inequalities.
- Optimizing cx over members of 
+ Optimizing 
+\begin_inset Formula $cx$
+\end_inset
+
+ over members of 
 \begin_inset Formula $Q$
 \end_inset
 
- is the same as optimizing cx subject to 
+ is the same as optimizing 
+\begin_inset Formula $cx$
+\end_inset
+
+ subject to 
 \begin_inset Formula $L$
 \end_inset
 
@@ -1055,7 +386,7 @@ He liked that, and let me not worry so much about airports.
 \end_inset
 
  of points in 
-\begin_inset Formula $RE$
+\begin_inset Formula $R^{E}$
 \end_inset
 
  , the number of inequalities needed is exponential relative to 
@@ -1073,7 +404,10 @@ He liked that, and let me not worry so much about airports.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1083,23 +417,43 @@ Suppose we want a TSP tour which optimizes the sum of love-weights on edges
 \end_inset
 
 .
-\end_layout
+ The TSP, in a yes-no form, is given 
+\begin_inset Formula $t$
+\end_inset
 
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-The TSP, in a yes-no form, is given t = (a graph 
+ = (a graph 
 \begin_inset Formula $G$
 \end_inset
 
-, a love-weight ce for each edge e, a tour H in G), then where 
+, a love-weight 
+\begin_inset Formula $c_{e}$
+\end_inset
+
+ for each edge 
+\begin_inset Formula $e$
+\end_inset
+
+, a tour 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+), then where 
 \begin_inset Formula $A(t)$
 \end_inset
 
- is the predicate “H is not the largest total love-weight tour in G”, is
- 
+ is the predicate “
+\begin_inset Formula $H$
+\end_inset
+
+ is not the largest total love-weight tour in 
+\begin_inset Formula $G$
+\end_inset
+
+”, is 
 \begin_inset Formula $A(t)$
 \end_inset
 
@@ -1111,7 +465,10 @@ The TSP, in a yes-no form, is given t = (a graph
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1144,12 +501,15 @@ Is it in coNP? TSP is represented by the set Q of the 0-1 vectors x of the
 \end_inset
 
 ’ , which is satisfied by a 0,1 vector x if and only if x is the vector
- of a TSP tour, is NP, though it is exponential ly large.
+ of a TSP tour, is NP, though it is exponentially large.
  
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1163,15 +523,7 @@ Unfortunately the solution-set of
 \end_inset
 
 ’ might not be by a TSP tour.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Their work was a motivation for Ralph Gomory in 1958 to introduce cutting
+ Their work was a motivation for Ralph Gomory in 1958 to introduce cutting
  plane methods for integer linear programming.
  There was no mention of ‘easy’, meaning polynomially bounded time.
  (Until my student Vasek Chatal, there was no stated theorem other than
@@ -1180,7 +532,10 @@ Their work was a motivation for Ralph Gomory in 1958 to introduce cutting
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1204,7 +559,10 @@ What is the “cut-depth” of a cutting plane method? The 1954 TSP paper of
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1230,28 +588,13 @@ And maybe that puts “optimize over
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-That is an important step toward an easy general algorithm for optimizing
+ That is an important step toward an easy general algorithm for optimizing
  over 
 \begin_inset Formula $Q$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-I was never able to find an NP description of a linear system L whose solution-
+ I was never able to find an NP description of a linear system L whose solution-
  set is the convex hull of the vectors of the TSP tours in a complete graph,
  
 \begin_inset Formula $G$
@@ -1270,7 +613,10 @@ I was never able to find an NP description of a linear system L whose solution-
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1281,18 +627,15 @@ The hypothesis
  is now usefully presumed.
  It is used all the time and its failure would be cataclysmic to all the
  great work of math programming.
+ Finding a mathematical proof has defied enormous attention for over 50
+ years.
 \end_layout
 
 \begin_layout Standard
-.
-\end_layout
+\begin_inset VSpace defskip
+\end_inset
 
-\begin_layout Standard
-Finding a mathematical proof has defied enormous attention for over 50 years.
-\end_layout
 
-\begin_layout Standard
-.
 \end_layout
 
 \begin_layout Standard
@@ -1305,14 +648,7 @@ Having such a proof does not really matter since it is true as long as we
 .
  It follows from work of Godel and Turing that most of true math does not
  have any mathematical proof.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-If I had been asked in 1966 I might have said that “
+ If I had been asked in 1966 I might have said that “
 \begin_inset Formula $NP≠P$
 \end_inset
 
@@ -1322,7 +658,10 @@ If I had been asked in 1966 I might have said that “
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1334,21 +673,17 @@ However Dick Karp showed in 1972 that TSP is NP complete, and so
  Throughout the 1960s , while looking for easy algorithms of course I found
  some polytime reductions between problems, but I never dreamed that there
  exist NP-complete problems.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-It is now a cosmic tragedy that there being so many NP-complete problems
+ It is now a cosmic tragedy that there being so many NP-complete problems
  has even given NP a bad name, when NP itself is a wonderfully positive
  thing.
  
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1379,7 +714,10 @@ During the 1960s, as part of a search for TSP in
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1395,42 +733,32 @@ Seemingly every known combinatorist participated.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The day before my scheduled lecture to the eminences I still did not have
  it.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Then Eureka, I did! You shrink blossoms! So the lecture was a success.
+ Then Eureka, I did! You shrink blossoms! So the lecture was a success.
  It attracted discussion and lots of good attention.
  Professor Tucker offered me a visiting research position at Princeton,
  chairing his Combinatorics and Games Seminar.
  And so my first glimpse of mathematical heaven was at the notorious RAND
  Corporation – as exciting as the RAND Corporation’s Daniel Ellsberg revealing
  the Pentagon Papers.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Alan’s wife Cynthia usually drove him to and from work, but occasionally
+ Alan’s wife Cynthia usually drove him to and from work, but occasionally
  I would.
  
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1482,7 +810,10 @@ During one of these inspiring drives Alan reminded me that there is an easy
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1503,22 +834,21 @@ Since the forest edge-sets of a graph are the independent sets of a matroid
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Corollary.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
+ 
+\series default
 The vertices of 
 \begin_inset Formula $P(M)$
 \end_inset
@@ -1546,7 +876,10 @@ The vertices of
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1563,15 +896,7 @@ In general the ‘independence system’,
 \end_inset
 
  is not a matroid.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-We want to describe the convex hull, say 
+ We want to describe the convex hull, say 
 \begin_inset Formula $P(M_{1}∩M_{2})$
 \end_inset
 
@@ -1580,14 +905,7 @@ We want to describe the convex hull, say
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Every common vertex of any two polyhedra is a vertex of their intersection.
+ Every common vertex of any two polyhedra is a vertex of their intersection.
  In general however, there will be other vertices as well.
  It is rare for two polyhedra to fit together so neatly that the only vertices
  of the intersection are the common vertices.
@@ -1599,7 +917,10 @@ Every common vertex of any two polyhedra is a vertex of their intersection.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1608,14 +929,7 @@ The dual optimum is integers when the c of max cx over
 \end_inset
 
  is integers.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-When the c is all ones we have the ‘Cardinality Matroid Intersection Theorem’:
+ When the c is all ones we have the ‘Cardinality Matroid Intersection Theorem’:
  max { 
 \begin_inset Formula $│J│:JεM_{1}∩M_{2}$
 \end_inset
@@ -1643,11 +957,13 @@ When the c is all ones we have the ‘Cardinality Matroid Intersection Theorem�
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1666,15 +982,7 @@ Proved by proving that a polynomial time algorithm more complicated than
 
  , and the dual optimum is integers if the c of the primal objective cx
  is integers.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-The Konig-Egervary (K-E) Theorem [1931] about the optimum assignment problem
+ The Konig-Egervary (K-E) Theorem [1931] about the optimum assignment problem
  is a special case where each matroid, 
 \begin_inset Formula $M_{1}$
 \end_inset
@@ -1707,7 +1015,10 @@ The Konig-Egervary (K-E) Theorem [1931] about the optimum assignment problem
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1752,7 +1063,10 @@ A novel instance of matroid intersection was the optimum (single) branching
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1769,15 +1083,7 @@ A set
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-A set 
+ A set 
 \begin_inset Formula $J$
 \end_inset
 
@@ -1799,7 +1105,10 @@ A set
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1832,44 +1141,28 @@ If the intersection of three matroids were nice then we could solve the
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 I found the optimum branching solution by applying this obvious application
  of matroid intersections.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-A direct description of the algorithm is quite elegant.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-I had a hunch that it would be more popular than general matroid intersections,
+ A direct description of the algorithm is quite elegant.
+ I had a hunch that it would be more popular than general matroid intersections,
  and it has been.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Karp and Fulkerson each presented different proofs of the algorithm, Bob
+ Karp and Fulkerson each presented different proofs of the algorithm, Bob
  Tarjan refined the running time with data structures, and applications
  have been presented.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1911,7 +1204,10 @@ I felt as did the algebraists of olden times who liked to hide their methods.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1944,29 +1240,17 @@ OBS easily reduces to where all the root nodes,
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The well known, widely treated, min cost network flow problem is a special
  case of OBS.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-However OBS does not reduce to it.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-The min cost network flow problem is Given a digraph 
+ However OBS does not reduce to it.
+ The min cost network flow problem is Given a digraph 
 \begin_inset Formula $G$
 \end_inset
 
@@ -2003,15 +1287,7 @@ The min cost network flow problem is Given a digraph
 \end_inset
 
  which minimizes the total cost of the edges used.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-(An integer “capacity be on edge 
+ (An integer “capacity be on edge 
 \begin_inset Formula $e$
 \end_inset
 
@@ -2036,65 +1312,35 @@ The min cost network flow problem is Given a digraph
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-(This reduction takes the shortest path problem to a single branching problem.)
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-There is a polynomial time algorithm for OBS, also as an intersection of
+ (This reduction takes the shortest path problem to a single branching problem.)
+ There is a polynomial time algorithm for OBS, also as an intersection of
  two matroids.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 However, it is considerably more complicated than for a single optimum branching.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-It requires additional theorems and algorithms.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Matroid intersection is the only approach known for solving OBS.
+ It requires additional theorems and algorithms.
+ Matroid intersection is the only approach known for solving OBS.
  Unsuccessful attempts have been made to describe nicely a direct algorithm
  for OBS.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Curiously, unlike the optimum single branching problem, the simplest way
+ Curiously, unlike the optimum single branching problem, the simplest way
  known to describe an algorithm for OBS is by matroid intersection for general
  matroids, but more than that is needed.
  
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2104,15 +1350,7 @@ Matroid algorithms use subroutine sources of the matroids, M, which say
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-For OBS, matroid 
+ For OBS, matroid 
 \begin_inset Formula $M_{1}$
 \end_inset
 
@@ -2133,15 +1371,7 @@ For OBS, matroid
 \end_inset
 
  of them are directed toward any other node.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Matroid 
+ Matroid 
 \begin_inset Formula $M_{2}$
 \end_inset
 
@@ -2162,7 +1392,10 @@ Matroid
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2171,14 +1404,7 @@ It is not obvious that
 \end_inset
 
  a matroid.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-And a polytime algorithm is not obvious for recognizing whether a set 
+ And a polytime algorithm is not obvious for recognizing whether a set 
 \begin_inset Formula $J$
 \end_inset
 
@@ -2237,7 +1463,10 @@ And a polytime algorithm is not obvious for recognizing whether a set
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2256,7 +1485,10 @@ ing algorithm which proves this Matroid Partitioning Theorem.
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2273,49 +1505,23 @@ All of that gives us a good algorithm for finding an optimum set J of edges
 \begin_inset Formula $G$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 .
-\end_layout
-
-\begin_layout Standard
-That does not mean that there is a partition of J into k sets which satisfies
+ That does not mean that there is a partition of J into k sets which satisfies
  both (1) and (2).
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Well, there is.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-We will see that as another big theorem.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Rainbow Spanning Trees.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Given a graph G and any coloring of the edge-set 
+ We will see that as another big theorem.
+ Rainbow Spanning Trees.
+ Given a graph G and any coloring of the edge-set 
 \begin_inset Formula $E$
 \end_inset
 
@@ -2332,14 +1538,7 @@ Given a graph G and any coloring of the edge-set
 \end_inset
 
  which uses any color at most once.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-(*) Find if possible a set 
+ (*) Find if possible a set 
 \begin_inset Formula $J$
 \end_inset
 
@@ -2356,24 +1555,8 @@ Given a graph G and any coloring of the edge-set
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-This is a known topic in graph theory.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-(**) An r-branching in a directed 
+ This is a known topic in graph theory.
+ (**) An r-branching in a directed 
 \begin_inset Formula $G$
 \end_inset
 
@@ -2387,14 +1570,7 @@ This is a known topic in graph theory.
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-For 
+ For 
 \begin_inset Formula $k=1$
 \end_inset
 
@@ -2407,14 +1583,7 @@ For
 \end_inset
 
 , whenever there one, is polynomial time, using matroid intersection.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-For 
+ For 
 \begin_inset Formula $k>1$
 \end_inset
 
@@ -2423,58 +1592,29 @@ For
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 It is probably NP complete.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-However, God is sometimes kind.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-In the case of (**) we can do (*).
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-This is a nifty theorem about edge-disjoint branchings in directed graphs.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-We do not know a generalization to matroids, or to different ways of coloring
+ However, God is sometimes kind.
+ In the case of (**) we can do (*).
+ This is a nifty theorem about edge-disjoint branchings in directed graphs.
+ We do not know a generalization to matroids, or to different ways of coloring
  the edges.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-It is interesting to compare the post-optimization of OBS with the post-optimiz
+ It is interesting to compare the post-optimization of OBS with the post-optimiz
  ation of mincost flow.
  
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2521,14 +1661,7 @@ In well known algorithms for the mincost network flow problem (which in
 \end_inset
 
  has no directed cycles.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-If you are dispatching 
+ If you are dispatching 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2537,15 +1670,7 @@ If you are dispatching
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-You partition 
+ You partition 
 \begin_inset Formula $J$
 \end_inset
 
@@ -2562,20 +1687,15 @@ You partition
 \end_inset
 
 .
+ That is so easy to do that we sometimes forget to do it.
  
 \end_layout
 
 \begin_layout Standard
-.
-\end_layout
+\begin_inset VSpace defskip
+\end_inset
 
-\begin_layout Standard
-That is so easy to do that we sometimes forget to do it.
- 
-\end_layout
 
-\begin_layout Standard
-.
 \end_layout
 
 \begin_layout Standard
@@ -2600,50 +1720,37 @@ That is analogous to solving OBS by finding an optimum set
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 It is not quite as simple as for network flows to get a partition which
  satisfies both (1) and (2).
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-But we can do it.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-This can be seen as a corollary of an admirable generalization of the maxflow-m
+ But we can do it.
+ This can be seen as a corollary of an admirable generalization of the maxflow-m
  incut theorem: It is not quite as simple as for network flows to get a
  partition which satisfies both (1) and (2).
  But we can do it.
+ This can be seen as a corollary of an admirable generalization of the maxflow-m
+ incut theorem with a polynomial time algorithmic proof: 
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-This can be seen as a corollary of an admirable generalization of the maxflow-m
- incut theorem with a polynomial time algorithmic proof: The Disjoint Branching
- Theorem.
+
+\series bold
+The Disjoint Branching Theorem.
  
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
+\series default
 The max number of edge-disjoint spanning directed trees in 
 \begin_inset Formula $G$
 \end_inset
@@ -2669,15 +1776,7 @@ The max number of edge-disjoint spanning directed trees in
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-(This means 
+ (This means 
 \begin_inset Formula $C$
 \end_inset
 
@@ -2694,14 +1793,7 @@ The max number of edge-disjoint spanning directed trees in
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-It is called a cut.) Compare with the maxflow-mincut theorem: The max number
+ It is called a cut.) Compare with the maxflow-mincut theorem: The max number
  of edge-disjoint directed paths from node 
 \begin_inset Formula $r$
 \end_inset
@@ -2730,18 +1822,18 @@ It is called a cut.) Compare with the maxflow-mincut theorem: The max number
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Corollary of The Disjoint Branching Theorem.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
+ 
+\series default
 If (and of course only if) a set 
 \begin_inset Formula $J$
 \end_inset
@@ -2776,59 +1868,21 @@ If (and of course only if) a set
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The various ingredients for solving OBS are in books on combinatorial optimizat
  ion, but I’m still trying get people to do a good computer implementation.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-It is clearly possible, but a bit complicated.
- 
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-There is an enormous amount on refinement and implementation of “the blossom
+ It is clearly possible, but a bit complicated.
+ There is an enormous amount on refinement and implementation of “the blossom
  algorithm” for optimum matchings but none for optimum matroid intersections.
  I suppose that the subroutine oracle nature of matroid intersections is
  scary.
  
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_layout
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_body 
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-end_document
 \end_layout
 
 \end_body
