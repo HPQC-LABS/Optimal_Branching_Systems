@@ -5,6 +5,7 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+<<<<<<< HEAD
 \begin_preamble
 %% If you insert a picture at the beginning of a paragraph, wrapfigure places the picture below the first line of the paragraph. To avoid that, insert the following code to the preamble: 
 \setlength{\intextsep}{0cm plus1cm minus1cm}
@@ -23,6 +24,9 @@ theorems-ams
 eqs-within-sections
 figs-within-sections
 \end_modules
+=======
+\use_default_options true
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -60,9 +64,15 @@ figs-within-sections
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
+<<<<<<< HEAD
 \cite_engine natbib
 \cite_engine_type authoryear
 \biblio_style plainnat
+=======
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -75,9 +85,15 @@ figs-within-sections
 \color #008000
 \end_index
 \leftmargin 1cm
+<<<<<<< HEAD
 \topmargin 1.5cm
 \rightmargin 1cm
 \bottommargin 1.5cm
+=======
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -103,7 +119,10 @@ Terminology
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
 \noindent
+=======
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 
 \series bold
 Directed tree:
@@ -236,6 +255,7 @@ Spanning subgraph
 \end_inset
 
 .
+<<<<<<< HEAD
 \end_layout
 
 \begin_layout Standard
@@ -256,6 +276,8 @@ This appears too simple.
 
 \begin_layout Standard
 \noindent
+=======
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \begin_inset Note Note
 status open
 
@@ -359,7 +381,11 @@ spanning forest
 Branching system 
 \series default
 of 
+<<<<<<< HEAD
 \begin_inset Formula $D(V,A)$
+=======
+\begin_inset Formula $D(G,A)$
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \end_inset
 
  with 
@@ -469,6 +495,7 @@ trivial
 \end_layout
 
 \begin_layout Section
+<<<<<<< HEAD
 Algorithm
 \end_layout
 
@@ -588,10 +615,221 @@ arborescences
 \series default
 \color inherit
 
+=======
+Examples:
+\end_layout
+
+\begin_layout Subsection
+3-nodes
+\end_layout
+
+\begin_layout Subsubsection
+1 root
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pasted1.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The branching systems are:
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,s_{1},s_{2}\},c(B_{1})=0}\\
+B_{2} & =\{rs_{2},rs_{1}\},c(B_{2})=-2\\
+B_{3} & =\{rs_{1},s_{1}s_{2}\},c(B_{3})=3\\
+\textcolor{red}{\ensuremath{B_{4}}} & \textcolor{red}{\ensuremath{=}\{rs_{1},s_{2}\},c(B_{4})=1}\\
+\textcolor{red}{\ensuremath{B_{5}}} & \textcolor{red}{\ensuremath{=}\{rs_{2},s_{1}\},c(B_{5})=-3.}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B_{5}$
+\end_inset
+
+ is the optimal branching system!
+\end_layout
+
+\begin_layout Subsubsection
+2 roots
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pasted2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The branching systems are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,r_{2},t\},c(B_{1})=0}\\
+\textcolor{red}{\ensuremath{B_{2}}} & \textcolor{red}{\ensuremath{=}\{A,r_{2}\},c(B_{2})=1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B_{1}$
+\end_inset
+
+ is the optimal branching system! If 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ wasn't a root then we would also be allowed 
+\begin_inset Formula $B_{3}=\{A,C\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{4}=\{A,B\}$
+\end_inset
+
+, leading to 
+\begin_inset Formula $B_{3}$
+\end_inset
+
+ being the OBS.
+\end_layout
+
+\begin_layout Subsection
+4-nodes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pasted3.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The branching systems are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r_{1},r_{2},s_{1},s_{2}\},c(B_{1})=0}\\
+B_{2} & =\{C,E,B\},c(B_{2})=\\
+\textcolor{red}{\ensuremath{B_{3}}} & \textcolor{red}{\ensuremath{=}\{CD,r_{2}\},c(B_{3})=}\\
+B_{4} & =\{C,BD\},c(B_{4})=\\
+\textcolor{red}{\ensuremath{B_{5}}} & \textcolor{red}{\ensuremath{=}\{C,r_{2},s_{2}\},c(B_{5})=}\\
+\textcolor{red}{\ensuremath{B_{6}}} & \textcolor{red}{\ensuremath{=}\{E,r_{2},s_{1}\},c(B_{6})=}\\
+\textcolor{red}{\ensuremath{B_{7}}} & \textcolor{red}{\ensuremath{=}\{BD,r_{1}\},c(B_{7})=}\\
+\textcolor{red}{\ensuremath{B_{8}}} & \textcolor{red}{\ensuremath{=}\{B,r_{1},r_{2}\},c(B_{8})=}\\
+B_{9} & =\{BD,E\},c(B_{9})=\\
+B_{10} & =\{BD,C\},c(B_{10})=\\
+B_{11} & =\{BD,E,C\},c(B_{11})=\\
+B_{12} & =\{E,CD,B\},c(B_{12})=\\
+\textcolor{red}{\ensuremath{B_{13}}} & \textcolor{red}{\ensuremath{=}\{B,C,s_{2}\},c(B_{13})=}\\
+\textcolor{red}{\ensuremath{B_{14}}} & \textcolor{red}{\ensuremath{=}\{E,CD,r_{2}\},c(B_{14})=}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+5-nodes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pasted4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The branching systems are:
+\end_layout
+
+\begin_layout Section
+Algorithm
+\end_layout
+
+\begin_layout Standard
+Finding an OBS entails finding a min-cost set 
+\begin_inset Formula $D$
+\end_inset
+
+ of edges which is both a basis of matroid 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ (optimum matroid intersection problem).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $M_{1}=(E,J_{1})$
+\end_inset
+
+ in which 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ has no edges entering node 
+\begin_inset Formula $r,$
+\end_inset
+
+ and at most (at most? but corollary said 
+\begin_inset Quotes eld
+\end_inset
+
+exactly
+\begin_inset Quotes erd
+\end_inset
+
+) 
+\begin_inset Formula $k$
+\end_inset
+
+ edges entering each other node of the graph.
+ 
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
+<<<<<<< HEAD
 Edmonds says 
 \begin_inset Quotes eld
 \end_inset
@@ -601,11 +839,41 @@ forests
 \end_inset
 
  but we never defined forest.
+=======
+Edmonds says it's 
+\begin_inset Quotes eld
+\end_inset
+
+obvious
+\begin_inset Quotes erd
+\end_inset
+
+ that this is a matroid.
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \end_layout
 
 \end_inset
 
+<<<<<<< HEAD
 .
+=======
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $M_{2}=(E,J_{2})$
+\end_inset
+
+ in which 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ can be partitioned into at most 
+\begin_inset Formula $k$
+\end_inset
+
+ forests.
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
  
 \begin_inset Note Note
 status open
@@ -624,10 +892,13 @@ matroid partitioning
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
+=======
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 So all we have to do is (after converting the weighted directed graph into
  a weighted incidence matrix):
 \end_layout
@@ -691,6 +962,7 @@ Use weighted matroid intersection to find the
 .
 \end_layout
 
+<<<<<<< HEAD
 \end_inset
 
 
@@ -717,10 +989,15 @@ status open
 
 \begin_layout Plain Layout
 \align center
+=======
+\begin_layout Standard
+\noindent
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
+<<<<<<< HEAD
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1397,6 +1674,37 @@ beautiful, direct, easy algorithm
 
  when 
 \begin_inset Formula $k=1,$
+=======
+\noindent
+
+\series bold
+Convenient reduction of OBS:
+\series default
+ Find (if they exist) a least expensive set of 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\series default
+branchings which don't share any edges (edge-disjoint) all rooted at node
+ 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ There is a 
+\begin_inset Quotes eld
+\end_inset
+
+beautiful, direct, easy algorithm
+\begin_inset Quotes erd
+\end_inset
+
+ when 
+\begin_inset Formula $k=1,$
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \end_inset
 
 but we need matroid partitioning and intersections when 
@@ -1589,6 +1897,7 @@ When the capacity of each edge is 1, a min-cost flow algorithm finds a set
 
 \end_layout
 
+<<<<<<< HEAD
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -1622,5 +1931,7 @@ So let’s now do an example after using the above theorem as a guide to ensure
 
 \end_layout
 
+=======
+>>>>>>> de9540f9ba4929d628e635074581af67250da83a
 \end_body
 \end_document
