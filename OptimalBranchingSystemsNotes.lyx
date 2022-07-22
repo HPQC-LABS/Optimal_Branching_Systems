@@ -705,9 +705,7 @@ Examples:
 \end_layout
 
 \begin_layout Subsubsection
-1 root (error in the graph! s1->s2 should be going in the opposite direction!
- ...
- Also it seems that J1 also should contain subsets of B1 and B2)
+1 root (it seems that J1 also should contain subsets of B1 and B2)
 \end_layout
 
 \begin_layout Standard
@@ -1140,7 +1138,7 @@ so the OBS will be the min-cost branching system in
 \end_layout
 
 \begin_layout Subsubsection
-2 roots (seems wrong since B is going into r2)
+2 roots
 \end_layout
 
 \begin_layout Standard
@@ -1276,7 +1274,7 @@ B_{12} & =\{E,CD,B\},c(B_{12})=\\
 \end_layout
 
 \begin_layout Subsubsection
-2 roots (seems totally wrong)
+2 roots
 \end_layout
 
 \begin_layout Standard
@@ -1584,6 +1582,39 @@ When the capacity of each edge is 1, a min-cost flow algorithm finds a set
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Theorem: Given n, k as natural numbers, where n is the number of nodes,
+ and k is the number of roots, then given that we have (n - 1)k + 1 edges
+ or more, then, there is no way to partition the graph into k forests with
+ all (n - 1)k + 1 edges.
+\end_layout
+
+\begin_layout Plain Layout
+Proof: Assume by contradiction that we can.
+ Then, since each forest must have at most n - 1 edges, then we have k(n
+ - 1) edges used on k forests.
+ But we have an extra edge, which contradicts the fact that we can partition
+ it into k forests.
+ Therefore, given (n - 1)k + 1 edges, we cannot have that edge set in M2.
+\end_layout
+
+\begin_layout Plain Layout
+So let’s now do an example after using the above theorem as a guide to ensure
+ that there is no way to partition the graph into k forests with all (n-1)k
+ + 1 edges.
+ So that J2 is not a subset of J1 and vice versa.
+ 
 \end_layout
 
 \end_inset
