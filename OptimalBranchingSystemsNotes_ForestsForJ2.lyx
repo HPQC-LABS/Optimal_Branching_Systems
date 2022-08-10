@@ -115,8 +115,8 @@ Terminology
 \series bold
 Directed tree:
 \series default
- A directed graph that would be a tree if we ingored the directions of the
- edges.
+ A directed graph (digraph) that would be a tree if we ingored the directions
+ of the edges.
  
 \begin_inset Note Note
 status open
@@ -643,11 +643,11 @@ Is this only different from a branching system, by the fact that it doesn't
 \begin_inset Formula $j\in J_{2}$
 \end_inset
 
- can be partitioned into at most 
+ can be partitioned into 
 \begin_inset Formula $k$
 \end_inset
 
- 
+ or fewer  
 \series bold
 \color red
 forests
@@ -982,108 +982,6 @@ So we have that:
 which are precisely the branching systems that we found by brute force!
 \end_layout
 
-\begin_layout Standard
-\align center
-
-\series bold
-\color red
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\align center
-
-\series bold
-\color red
-We also have that 
-\begin_inset Formula $J_{1}=J_{2}=\{B_{1},B_{2}\}.$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Wrap figure
-lines 0
-placement o
-overhang 0col%
-width "50col%"
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align left
-\begin_inset Graphics
-	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_3node_1root.pdf
-	width 30text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-The branching systems are:
-\begin_inset Formula 
-\begin{align}
-\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,s_{1},s_{2}\},c(B_{1})=0}\\
-B_{2} & =\{rs_{2},rs_{1}\},c(B_{2})=-2\\
-B_{3} & =\{rs_{1},s_{1}s_{2}\},c(B_{3})=3\\
-\textcolor{red}{\ensuremath{B_{4}}} & \textcolor{red}{\ensuremath{=}\{rs_{1},s_{2}\},c(B_{4})=1}\\
-\textcolor{red}{\ensuremath{B_{5}}} & \textcolor{red}{\ensuremath{=}\{rs_{2},s_{1}\},c(B_{5})=-3.}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula $B_{5}$
-\end_inset
-
- is the optimal branching system!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection
 2 roots, 3 edges
 \end_layout
@@ -1264,125 +1162,6 @@ So we have that:
 \color blue
 meaning that no branching systems exist, which is exactly what we said at
  the beginning!
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-But we have that 
-\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,A\}.$
-\end_inset
-
- So 
-\begin_inset Formula $\{A\}$
-\end_inset
-
- is a basis for 
-\begin_inset Formula $J_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $J_{2}$
-\end_inset
-
- and is therefore also the optimal one.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-
-\series bold
-\color red
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\align center
-The only branching system is:
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Formula 
-\begin{equation}
-\mathscr{B}=\{A\}.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\series bold
-\color red
-We also have that 
-\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,\mathscr{B}\}.$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-The branching systems are:
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align}
-\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,r_{2},t\},c(B_{1})=0}\\
-\textcolor{red}{\ensuremath{B_{2}}} & \textcolor{red}{\ensuremath{=}\{A,r_{2}\},c(B_{2})=1}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula $B_{1}$
-\end_inset
-
- is the optimal branching system! If 
-\begin_inset Formula $r_{2}$
-\end_inset
-
- wasn't a root then we would also be allowed 
-\begin_inset Formula $B_{3}=\{A,C\}$
-\end_inset
-
- and 
-\begin_inset Formula $B_{4}=\{A,B\}$
-\end_inset
-
-, leading to 
-\begin_inset Formula $B_{3}$
-\end_inset
-
- being the OBS.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1858,7 +1637,7 @@ J_{2} & =J_{1}\\
 
 \series bold
 \color blue
-which are precisely the branching system that listed at the beginning!
+which are precisely the branching systems that we listed at the beginning!
 \end_layout
 
 \begin_layout Standard
@@ -1868,8 +1647,184 @@ which are precisely the branching system that listed at the beginning!
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+multigraph, with 2 roots
+\series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 4-node directed graph with 1 roots.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/4node_2roots_complex/fig_4node_2roots_complex.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 5-nodes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+2 roots, 9 edges 
+\series default
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/5node_2roots/fig_5node_2roots.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+2 roots, multigraph involving K3,3 
+\series default
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_5node_2roots_k3_minor.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+2 roots, fish 
+\series default
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/5node_2roots_j1_j2_fish/fig_5node_2roots_j1_fish.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+2 roots, fish with Nike's extra edge 
+\series default
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/5node_2roots_j1_j2_fish/fig_5node_2roots_fish_extra_edge.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+2 roots, 9 edges, with the one that Nike suggested reversed in direction
+ 
+\series default
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/5node_2roots_j1_j2_fish/fig_5node_2roots_fish_extra_edge.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
