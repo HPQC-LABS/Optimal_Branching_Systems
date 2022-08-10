@@ -98,6 +98,13 @@ figs-within-sections
 
 \begin_body
 
+\begin_layout Standard
+\begin_inset VSpace -5mm
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Terminology
 \end_layout
@@ -224,15 +231,19 @@ Branching:
 Spanning subgraph
 \series default
  of 
-\begin_inset Formula $D(V,A)$
+\begin_inset Formula $G=(V,E)$
 \end_inset
 
-: A subgraph 
-\begin_inset Formula $D(V,B)$
+: Just a subgraph 
+\begin_inset Formula $(V,B)$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
 \end_inset
 
  such that 
-\begin_inset Formula $B\subseteq A$
+\begin_inset Formula $B\subseteq E$
 \end_inset
 
 .
@@ -359,7 +370,7 @@ spanning forest
 Branching system 
 \series default
 of 
-\begin_inset Formula $D(V,A)$
+\begin_inset Formula $G=(V,E)$
 \end_inset
 
  with 
@@ -372,7 +383,7 @@ of
 \end_inset
 
  root nodes, with each arborescence being a spanning subgraph of 
-\begin_inset Formula $D^{\prime}(V\backslash R,A)$
+\begin_inset Formula $(V\backslash R,E)$
 \end_inset
 
  with 
@@ -476,6 +487,13 @@ trivial
 
 \begin_layout Standard
 \begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -5mm
 \end_inset
 
 
@@ -741,6 +759,33 @@ Use weighted matroid intersection to find the
 
 \end_inset
 
+If 
+\begin_inset Formula $\mathcal{B}(M_{1})$
+\end_inset
+
+ is the set of all bases of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{B}(M_{2})$
+\end_inset
+
+ is the set of all bases of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+, then the optimal branching system will be the least-cost element in 
+\begin_inset Formula $\mathcal{B}(M_{1})\cap\mathcal{B}(M_{2}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -5mm
+\end_inset
+
 
 \end_layout
 
@@ -816,12 +861,43 @@ An example of a 3-node directed graph with 1 root.
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \align center
+
+\series bold
+\color blue
 The branching systems are: 
+\series default
+\color black
+
 \begin_inset Formula 
 \begin{align}
-\mathcal{B}_{1} & =\{A,C\}\\
-\mathcal{B}_{2} & =\{A,B\}
+\mathscr{B}_{1} & =\{A,C\}\\
+\mathscr{B}_{2} & =\{A,B\}
 \end{align}
 
 \end_inset
@@ -831,51 +907,79 @@ The branching systems are:
 
 \begin_layout Standard
 \align center
+
+\series bold
+\color blue
 We also have:
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace -3mm
-\end_inset
+\align center
 
-
-\end_layout
-
-\begin_layout Standard
+\color black
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P(B_{1})\cup P(B_{2})\}\\
- & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\}\}
+J_{1} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\}\\
+ & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\}\}\\
+\\
+J_{2} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\{B,C\})\}\\
+ & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\},\{B,C\}\}.
 \end{align}
 
 \end_inset
 
 
+\series bold
+\color blue
+The bases of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ (which are associated with 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ resepctively) are:
 \end_layout
 
 \begin_layout Standard
+\align center
+
+\color black
 \begin_inset Formula 
 \begin{align}
-J_{2} & =\{P(\{A,B\})\cup P(A,C)\cup P(B,C)\}\\
-b(J_{1}) & =\{\mathcal{\mathcal{B}}_{1},\mathcal{\mathcal{B}}_{2}\}\\
-b(J_{2}) & =\{\mathcal{\mathcal{B}}_{1},\mathcal{\mathcal{B}}_{2},\{B,C\}\}.
+\mathcal{B}(M_{1}) & =\{\mathcal{\mathscr{B}}_{1},\mathcal{\mathscr{B}}_{2}\}\\
+\mathcal{B}(M_{2}) & =\{\mathcal{\mathscr{B}}_{1},\mathcal{\mathscr{B}}_{2},\{B,C\}\}
 \end{align}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
+\series bold
+\color blue
 So we have that: 
+\series default
+\color black
+
 \begin_inset Formula 
 \begin{equation}
-b(J_{1})\cap b(J_{2})=\{\mathcal{\mathcal{B}}_{1},\mathcal{\mathcal{B}}_{2}\}.
+\mathcal{B}(M_{1})\cap\mathcal{B}(M_{2})=\{\mathcal{\mathscr{B}}_{1},\mathcal{\mathscr{B}}_{2}\},
 \end{equation}
 
 \end_inset
 
 
+\series bold
+\color blue
+which are precisely the branching systems that we found by brute force!
 \end_layout
 
 \begin_layout Standard
@@ -1058,26 +1162,39 @@ An example of a 3-node directed graph with 2 roots.
 \end_layout
 
 \begin_layout Standard
+\align center
+
+\series bold
+\color blue
 There's no branching systems because it's impossible for an arborescence
  rooted at 
 \begin_inset Formula $r_{2}$
 \end_inset
 
- to be spanning.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 2mm
+ to be a spanning subgraph of the original graph (no arborescence rooted
+ at 
+\begin_inset Formula $r_{2}$
 \end_inset
 
-
+ can contain all of the original graph's vertices).
+ 
 \end_layout
 
 \begin_layout Standard
+\align center
+
+\series bold
+\color blue
+We also have:
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Formula 
 \begin{align}
 J_{1} & =\{\emptyset,\{A\}\}\\
-J_{2} & =P(\{A,C,B\})
+J_{2} & =P(\{A,B;C\})\\
+ & =\{A,B,C,\{A,B\},\{A,C\},\{B,C\},\{A,B,C\}\}.
 \end{align}
 
 \end_inset
@@ -1086,19 +1203,67 @@ J_{2} & =P(\{A,C,B\})
 \end_layout
 
 \begin_layout Standard
-Therefore 
-\begin_inset Formula $b(J_{1})=\{\{A\}\}$
+\align center
+
+\series bold
+\color blue
+The bases of 
+\begin_inset Formula $M_{1}$
 \end_inset
 
  and 
-\begin_inset Formula $b(J_{2})=\{\{A,B,C\}\}$
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ (which are associated with 
+\begin_inset Formula $J_{1}$
 \end_inset
 
  and 
-\begin_inset Formula $b(J_{1})\cap b(J_{2})=\emptyset$
+\begin_inset Formula $J_{2}$
 \end_inset
 
- meaning that there's no branching systems.
+ resepctively) are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{B}(M_{1}) & =\{\{A\}\}\\
+\mathcal{B}(M_{2}) & =\{\{A,B,C\}\}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color blue
+So we have that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{B}(M_{1})\cap\mathcal{B}(M_{2})=\emptyset.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color blue
+meaning that no branching systems exist, which is exactly what we said at
+ the beginning!
 \end_layout
 
 \begin_layout Standard
@@ -1147,7 +1312,7 @@ The only branching system is:
 \align center
 \begin_inset Formula 
 \begin{equation}
-\mathcal{B}=\{A\}.
+\mathscr{B}=\{A\}.
 \end{equation}
 
 \end_inset
@@ -1161,7 +1326,7 @@ The only branching system is:
 \series bold
 \color red
 We also have that 
-\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,\mathcal{B}\}.$
+\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,\mathscr{B}\}.$
 \end_inset
 
 
@@ -1313,9 +1478,9 @@ The branching systems are:
 \align center
 \begin_inset Formula 
 \begin{align}
-\mathcal{B}_{1} & =\{E,A,B\},\\
-\mathcal{B}_{2} & =\{C,E,A\},\\
-\mathcal{B}_{3} & =\{C,D,A\}.
+\mathscr{B}_{1} & =\{E,A,B\},\\
+\mathscr{B}_{2} & =\{C,E,A\},\\
+\mathscr{B}_{3} & =\{C,D,A\}.
 \end{align}
 
 \end_inset
@@ -1341,8 +1506,8 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-b(J_{1}) & =\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3},\{A,B,D\}\}\\
-b(J_{2}) & =\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3},\{A,B,C\},\{B,C,E\},\{B,D,C\},\{B,D,E\},\{A,D,E\}\}.
+b(J_{1}) & =\{\mathscr{B}_{1},\mathscr{B}_{2},\mathscr{B}_{3},\{A,B,D\}\}\\
+b(J_{2}) & =\{\mathscr{B}_{1},\mathscr{B}_{2},\mathscr{B}_{3},\{A,B,C\},\{B,C,E\},\{B,D,C\},\{B,D,E\},\{A,D,E\}\}.
 \end{align}
 
 \end_inset
@@ -1357,7 +1522,7 @@ So we find that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-b(J_{1})\cap b(J_{2})=\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3}\}.
+b(J_{1})\cap b(J_{2})=\{\mathscr{B}_{1},\mathscr{B}_{2},\mathscr{B}_{3}\}.
 \end{equation}
 
 \end_inset
@@ -1433,7 +1598,7 @@ There is only one branching system:
 \align center
 \begin_inset Formula 
 \begin{align}
-\mathcal{B} & =\{E,B,D,C\}.
+\mathscr{B} & =\{E,B,D,C\}.
 \end{align}
 
 \end_inset
@@ -1448,7 +1613,7 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-b(J_{1}) & =\{\mathcal{B}\}\\
+b(J_{1}) & =\{\mathscr{B}\}\\
 b(J_{2}) & =\{A,B,C,D,E\},\\
 b(J_{1}) & \cap b(J_{2})=\emptyset
 \end{align}
@@ -1471,7 +1636,7 @@ So we need to remove
 \begin_inset Formula 
 \begin{align}
 b(J_{2}) & =b(J_{1}),\\
-b(J_{2}) & \cap b(J_{2})=\mathcal{B}.
+b(J_{2}) & \cap b(J_{2})=\mathscr{B}.
 \end{align}
 
 \end_inset
@@ -1493,7 +1658,7 @@ status open
 \series bold
 \color red
 We also have that: 
-\begin_inset Formula $b(J_{1})=b(J_{2})=\mathcal{B}.$
+\begin_inset Formula $b(J_{1})=b(J_{2})=\mathscr{B}.$
 \end_inset
 
 
@@ -1620,9 +1785,9 @@ The branching systems are:
 \align center
 \begin_inset Formula 
 \begin{align}
-\mathcal{B}_{1} & =\{A,H,E;B,C,D\},\\
-\mathcal{B}_{2} & =\{E,I,H;B,C,D\},\\
-\mathcal{B}_{3} & =\{A,H,E;C,D,I\}.
+\mathscr{B}_{1} & =\{A,H,E;B,C,D\},\\
+\mathscr{B}_{2} & =\{E,I,H;B,C,D\},\\
+\mathscr{B}_{3} & =\{A,H,E;C,D,I\}.
 \end{align}
 
 \end_inset
@@ -1633,7 +1798,7 @@ The branching systems are:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-b(J_{1}) & =\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{2}\}\\
+b(J_{1}) & =\{\mathscr{B}_{1},\mathscr{B}_{2},\mathscr{B}_{2}\}\\
 b(J_{2}) & =\{B,A,I,D;C,H,E\}
 \end{align}
 
@@ -1660,7 +1825,7 @@ status open
 \series bold
 \color red
 We also have that: 
-\begin_inset Formula $b(J_{1})=b(J_{2})=\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3}\}.$
+\begin_inset Formula $b(J_{1})=b(J_{2})=\{\mathscr{B}_{1},\mathscr{B}_{2},\mathscr{B}_{3}\}.$
 \end_inset
 
 
