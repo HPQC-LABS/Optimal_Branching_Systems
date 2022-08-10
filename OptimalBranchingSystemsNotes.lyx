@@ -486,6 +486,27 @@ Algorithm
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Edmonds didn't say this, but step 1 should be: 
+\begin_inset Quotes eld
+\end_inset
+
+remove anything entering a root
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 To find an OBS we need to find a min-cost set of edges which is both a basis
  of matroid 
 \begin_inset Formula $M_{1}$
@@ -557,6 +578,20 @@ obvious
 \end_inset
 
  that this is a matroid.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Why are we allowing cycles in the sets in J1? Because when there's more
+ than one root, we can have two arborescences which by themselves don't
+ have cycles, but when combined, do contain cycles.
 \end_layout
 
 \end_inset
@@ -785,8 +820,8 @@ An example of a 3-node directed graph with 1 root.
 The branching systems are: 
 \begin_inset Formula 
 \begin{align}
-B_{1} & =\{A,C\}\\
-B_{2} & =\{A,B\}
+\mathcal{B}_{1} & =\{A,C\}\\
+\mathcal{B}_{2} & =\{A,B\}
 \end{align}
 
 \end_inset
@@ -810,7 +845,7 @@ We also have:
 \begin_inset Formula 
 \begin{align}
 J_{1} & =\{P(B_{1})\cup P(B_{2})\}\\
- & =\{\emptyset,A,C,\{A,C\},B,\{A,B\}\}
+ & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\}\}
 \end{align}
 
 \end_inset
@@ -830,44 +865,7 @@ J_{2}=J_{1}
 \end_layout
 
 \begin_layout Standard
-Therefore, we have 
-\begin_inset Formula $J_{1}\cap J_{2}=J_{1}$
-\end_inset
-
- and if 
-\begin_inset Formula $c(A)<0$
-\end_inset
-
- and 
-\begin_inset Formula $c(B)=c(D)>0,$
-\end_inset
-
-we have that the OBS obtained from minimizing over 
-\begin_inset Formula $J_{1}\cap J_{2}$
-\end_inset
-
- is 
-\begin_inset Formula $\{A\}$
-\end_inset
-
-, even though it is a non-spanning arborescence! Also if 
-\begin_inset Formula $c(A)=c(B)=c(C)>0$
-\end_inset
-
-, the OBS obtained from minimizing over 
-\begin_inset Formula $J_{1}\cap J_{2}$
-\end_inset
-
- would be 
-\begin_inset Formula $\{\emptyset\}$
-\end_inset
-
- for which if we consider the root to be 
-\begin_inset Formula $r$
-\end_inset
-
-, the arborescence would also not be spanning the graph.
- 
+Therefore basis(J1) = basis(J2) and their intersection is trivial.
 \end_layout
 
 \begin_layout Standard
@@ -1017,11 +1015,17 @@ An example of a 3-node directed graph with 2 roots.
 \end_layout
 
 \begin_layout Plain Layout
-.
+\begin_inset VSpace 2mm
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-.
+\begin_inset VSpace 2mm
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1030,16 +1034,86 @@ An example of a 3-node directed graph with 2 roots.
 \end_layout
 
 \begin_layout Standard
-\align center
-The only branching system is:
+\begin_inset VSpace 2mm
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\align center
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There's no branching systems because it's impossible for an arborescence
+ rooted at 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ to be spanning.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-B=\{A\}.
-\end{equation}
+\begin{align}
+J_{1} & =\{\emptyset,\{A\}\}\\
+J_{2} & =P(\{A,C,B\})
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $b(J_{1})=\{\{A\}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $b(J_{2})=\{\{A,B,C\}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $b(J_{1})\cap b(J_{2})=\emptyset$
+\end_inset
+
+ meaning that there's no branching systems.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+But we have that 
+\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,A\}.$
+\end_inset
+
+ So 
+\begin_inset Formula $\{A\}$
+\end_inset
+
+ is a basis for 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ and is therefore also the optimal one.
+\end_layout
 
 \end_inset
 
@@ -1051,8 +1125,38 @@ B=\{A\}.
 
 \series bold
 \color red
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\align center
+The only branching system is:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula 
+\begin{equation}
+\mathcal{B}=\{A\}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\color red
 We also have that 
-\begin_inset Formula $J_{1}=J_{2}=B.$
+\begin_inset Formula $J_{1}=J_{2}=\{\emptyset,\mathcal{B}\}.$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -1150,6 +1254,27 @@ An example of a 4-node directed graph with 1 root.
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2mm
 \end_inset
 
 
@@ -1178,9 +1303,9 @@ The branching systems are:
 \align center
 \begin_inset Formula 
 \begin{align}
-B_{1} & =\{E,B,A\},\\
-B_{2} & =\{E,B,D\},\\
-B_{3} & =\{D,C,B\}.
+\mathcal{B}_{1} & =\{E,A,B\},\\
+\mathcal{B}_{2} & =\{C,E,A\},\\
+\mathcal{B}_{3} & =\{C,D,A\}.
 \end{align}
 
 \end_inset
@@ -1206,8 +1331,8 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{B_{1},B_{2},B_{3},\{A,C,B\}\}\\
-J_{2} & =\{B_{1},B_{2},B_{3}\}.
+b(J_{1}) & =\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3},\{A,B,D\}\}\\
+b(J_{2}) & =\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3}\}.
 \end{align}
 
 \end_inset
@@ -1218,11 +1343,11 @@ J_{2} & =\{B_{1},B_{2},B_{3}\}.
 \begin_layout Standard
 \align center
 Since 
-\begin_inset Formula $J_{2}\subset J_{1},$
+\begin_inset Formula $b(J_{2})\subset b(J_{1}),$
 \end_inset
 
 we know that 
-\begin_inset Formula $J_{1}\cap J_{2}=J_{2}$
+\begin_inset Formula $b(J_{1})\cap b(J_{2})=b(J_{2})$
 \end_inset
 
 , 
@@ -1307,7 +1432,7 @@ There is only one branching system:
 \align center
 \begin_inset Formula 
 \begin{align}
-B & =\{E,B,D,C\},
+\mathcal{B} & =\{E,B,D,C\},
 \end{align}
 
 \end_inset
@@ -1321,7 +1446,7 @@ B & =\{E,B,D,C\},
 \series bold
 \color red
 We also have that: 
-\begin_inset Formula $J_{1}=J_{2}=B.$
+\begin_inset Formula $b(J_{1})=b(J_{2})=\mathcal{B}.$
 \end_inset
 
 
@@ -1443,9 +1568,9 @@ The branching systems are:
 \align center
 \begin_inset Formula 
 \begin{align}
-B_{1} & =\{B,C,A,H,D,E\},\\
-B_{2} & =\{B,C,D,E,H,I\},\\
-B_{3} & =\{C,D,I,A,H,E\}.
+\mathcal{B}_{1} & =\{A,H,E;B,C,D\},\\
+\mathcal{B}_{2} & =\{E,I,H;B,C,D\},\\
+\mathcal{B}_{3} & =\{A,H,E;C,D,I\}.
 \end{align}
 
 \end_inset
@@ -1458,7 +1583,7 @@ B_{3} & =\{C,D,I,A,H,E\}.
 \series bold
 \color red
 We also have that: 
-\begin_inset Formula $J_{1}=J_{2}=\{B_{1},B_{2},B_{3}\}.$
+\begin_inset Formula $b(J_{1})=b(J_{2})=\{\mathcal{B}_{1},\mathcal{B}_{2},\mathcal{B}_{3}\}.$
 \end_inset
 
 
