@@ -2090,6 +2090,50 @@ This is not what we want, since we would like the intersection to contain
 
 \series bold
 \color purple
+This problem can be fixed by eliminating members of 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ that
+\emph on
+ 
+\emph default
+have more than 
+\begin_inset Formula $k(n-k)$
+\end_inset
+
+ edges, where 
+\begin_inset Formula $n=|V|$
+\end_inset
+
+
+\emph on
+.
+ 
+\emph default
+If we simply remove the 7-edge member of 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ in Eq.
+ 3.40, we will get that Eq.
+ 3.43 is the set of all desired branching systems.
+ This also works for 7 more graphs that I'm working on adding to this document.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color purple
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\color purple
 This problem can be fixed by requiring that the members of 
 \begin_inset Formula $J_{2}$
 \end_inset
@@ -2115,6 +2159,11 @@ ble into
 forests
 \bar default
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
