@@ -115,7 +115,7 @@ Terminology
 \series bold
 Directed tree:
 \series default
- A directed graph (digraph) that would be a tree if we ingored the directions
+ A directed graph (digraph) that would be a tree if we ignored the directions
  of the edges.
  
 \begin_inset Note Note
@@ -779,7 +779,7 @@ If
 \begin_inset Formula $\mathcal{B}(M_{1})\cap\mathcal{B}(M_{2}).$
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -919,10 +919,10 @@ We also have:
 \color black
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\}\\
+J_{1} & =P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\\
  & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\}\}\\
 \\
-J_{2} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\{B,C\})\}\\
+J_{2} & =P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P\{B,C\}\\
  & =\{\emptyset,\{A\},\{C\},\{A,C\},\{B\},\{A,B\},\{B,C\}\}.
 \end{align}
 
@@ -947,7 +947,7 @@ The bases of
 \begin_inset Formula $J_{2}$
 \end_inset
 
- resepctively) are:
+ respectively) are:
 \end_layout
 
 \begin_layout Standard
@@ -1091,7 +1091,7 @@ We also have:
 \begin_inset Formula 
 \begin{align}
 J_{1} & =\{\emptyset,\{A\}\}\\
-J_{2} & =P(\{A,B;C\})\\
+J_{2} & =P\{A,B;C\}\\
  & =\{\emptyset,A,B,C,\{A,B\},\{A,C\},\{B,C\},\{A,B,C\}\}.
 \end{align}
 
@@ -1121,7 +1121,7 @@ The bases of
 \begin_inset Formula $J_{2}$
 \end_inset
 
- resepctively) are:
+ respectively) are:
 \end_layout
 
 \begin_layout Standard
@@ -1365,8 +1365,8 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\cup P\{A,B,D\}\}\\
-J_{2} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\cup P\{A,B,C\}\cup P\{B,C,E\}\cup P\{B,D,C\}\cup P\{B,D,E\}\cup P\{A,D,E\}\}.
+J_{1} & =P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\cup P\{A,B,D\}\\
+J_{2} & =P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\cup P\{A,B,C\}\cup P\{B,C,E\}\cup P\{B,D,C\}\cup P\{B,D,E\}\cup P\{A,D,E\}.
 \end{align}
 
 \end_inset
@@ -1381,8 +1381,8 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P\{E,A,B\}\cup P\{C,E,A\}\cup P\{C,D,A\}\cup P\{A,B,D\}\}\\
-J_{2} & =\{P\{E,A,B\}\cup P\{C,E,A\}\cup P\{C,D,A\}\cup P\{A,B,C\}\cup P\{B,C,E\}\cup P\{B,D,C\}\cup P\{B,D,E\}\cup P\{A,D,E\}\}.
+J_{1} & =P\{E,A,B\}\cup P\{C,E,A\}\cup P\{C,D,A\}\cup P\{A,B,D\}\\
+J_{2} & =P\{E,A,B\}\cup P\{C,E,A\}\cup P\{C,D,A\}\cup P\{A,B,C\}\cup P\{B,C,E\}\cup P\{B,D,C\}\cup P\{B,D,E\}\cup P\{A,D,E\}.
 \end{align}
 
 \end_inset
@@ -1416,7 +1416,7 @@ The bases of
 \begin_inset Formula $J_{2}$
 \end_inset
 
- resepctively) are:
+ respectively) are:
 \end_layout
 
 \begin_layout Standard
@@ -1541,8 +1541,8 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P\mathscr{(B)}\}\\
-J_{2} & =\{P\{A,B,C,D,E\}\}
+J_{1} & =P\mathscr{(B)}\\
+J_{2} & =P\{A,B,C,D,E\}
 \end{align}
 
 \end_inset
@@ -1571,7 +1571,7 @@ The bases of
 \begin_inset Formula $J_{2}$
 \end_inset
 
- resepctively) are:
+ respectively) are:
 \end_layout
 
 \begin_layout Standard
@@ -1936,7 +1936,7 @@ We also have that:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-J_{1} & =\{P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\}\\
+J_{1} & =P(\mathscr{B}_{1})\cup P(\mathscr{B}_{2})\cup P(\mathscr{B}_{3})\\
 J_{2} & =P\{B,A,I,D;C,H,E\}.
 \end{align}
 
@@ -2041,7 +2041,7 @@ The bases of
 \begin_inset Formula $J_{2}$
 \end_inset
 
- resepctively) are:
+ respectively) are:
 \end_layout
 
 \begin_layout Standard
