@@ -1,0 +1,1893 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+For any graph 
+\begin_inset Formula $G$
+\end_inset
+
+, a matching 
+\begin_inset Formula $J$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ means a subset 
+\begin_inset Formula $J$
+\end_inset
+
+ of the edges such that each node is hit by at most one edge of 
+\begin_inset Formula $J$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $P(G)$
+\end_inset
+
+ be the polytope whose vertices are the 0,1 vectors of the matchings in
+ 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ The Konig-Egervary Theorem [1931] about the optimum assignment problem,
+ (the prototype of matroid-polytope intersection), implies: When 
+\begin_inset Formula $G$
+\end_inset
+
+ is bipartite, the convex hull of the 0,1 vectors of the matchings in 
+\begin_inset Formula $G$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(G)={x≥0:\text{for each node \ensuremath{v} of }G,\sum(x_{e}:\text{edges \ensuremath{e} hitting node \ensuremath{v}})≤1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Indeed this system of inequalities is “totally dual integral (TDI)”.
+ I think that the K-E theory is the first instance of linear programming
+ duality.
+ 
+\end_layout
+
+\begin_layout Standard
+The way they say the K-E Theorem is: The maximum total of given weights
+ 
+\begin_inset Formula $c_{e}$
+\end_inset
+
+ of the edges 
+\begin_inset Formula $e$
+\end_inset
+
+ of a matching in a bipartite G = the min sum 
+\begin_inset Formula $Σy_{v}$
+\end_inset
+
+ of integers 
+\begin_inset Formula $y_{v}≥0$
+\end_inset
+
+ assigned to the nodes 
+\begin_inset Formula $v$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ so that for each edge 
+\begin_inset Formula $e$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $y_{v_{1}}+y_{v2}≥c_{e}$
+\end_inset
+
+ where 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ are the nodes hit by edge 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This follows from the above inequality system being TDI, and conversely
+ this minmax equality implies that the inequality system is TDI.
+ However in 1931 the LP theory connecting the two were not known.
+ Much of combinatorial optimization in the 1950s by Alan Hoffman, David
+ Gale, Harold Kuhn, Ray Fulkerson, George Dantzig, and others, is closely
+ related to K-E.
+ I will indicate the story of how my good luck under Alan Goldman was to
+ generalize K-E to non-bipartite graphs, and also to “matroid intersections”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NP is the set of predicates which for the instances that are true there
+ is an easy proof.
+ coNP is the set of predicates which for the instances that are not true
+ there is an easy proof that they are not true.
+ P is the set of predicates for which there is a “good algorithm” to decide
+ whether the predicate is true or false.
+ In order to give the definitions some manageable mathematical meaning “good”
+ and “easy” means polynomial time relative to the size of writing down the
+ instance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NP and P have origins in “the marriage theorem”, a corollary of the bipartite
+ K-E matching theory: A matchmaker has as clients the parents of some boys
+ and some girls where some boy-girl pairs love each other.
+ The matchmaker must find a marriage of all the girls to distinct boys they
+ love or else prove to the parents that it is not possible.
+ The input to this marriage problem is a bipartite graph G with boy nodes,
+ girl nodes, and edges between them representing love.
+ A possible legal marriage of some of the girls to some of the boys is represent
+ ed by a subset 
+\begin_inset Formula $M$
+\end_inset
+
+ of the edges of 
+\begin_inset Formula $G$
+\end_inset
+
+, which is a matching.
+ The matchmaker’s problem is to find a matching which hits all the girl
+ nodes Or else prove to the parents that there is none.
+ The Marriage Theorem: Either: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+A(G) & =[\text{There is a way for the girls to marry distinct boys they love}]\text{ or else}\\
+B(G) & =\text{[There is a subset \ensuremath{S} of the girls which is bigger than the set of boys who someone in \ensuremath{S} loves],}
+\end{align}
+
+\end_inset
+
+Not both.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words the Marriage Theorem is: 
+\begin_inset Formula $A(G)=\text{not}B(G$
+\end_inset
+
+).
+ And so
+\begin_inset Formula $A(G)\in\text{NP}∩\text{co}\text{NP}$
+\end_inset
+
+, since both 
+\begin_inset Formula $A(G)$
+\end_inset
+
+ and 
+\begin_inset Formula $B(G)$
+\end_inset
+
+ are clearly in NP.
+ From Matt Baker: https://mattbaker.blog/2014/06/25/the-mathematics-of-marriage:
+ A gorgeous application of the marriage theorem is the following magic trick:
+ Deal a deck of cards into 13 piles of 4 cards each.
+ Select one card from each pile so that no value (Ace through King) is repeated.
+ This can always been done, no matter how the cards were originally dealt!
+ Matt deduces this from the Marriage Theorem said in a way which pure mathies
+ love: The girls can marry distinct boys they love if and only for every
+ subset S of the girls, 
+\begin_inset Formula $│S│≥\text{the number of boys which \ensuremath{S} to get her loves}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+While I was trying to assign radio frequencies to airports, my reading this
+ way of stating, and an algorithmically inefficient proof of the Marriage
+ Theorem, blew my mind with puzzlement.
+ Is looking at every subset of girls easier than looking at every matching?
+ Pure mathies love proofs which are bad as algorithms and convey the impression
+ that there is no easy way to actually get what the theorem says exists.
+ The proof in the book called “Proofs From The Book” is like that.
+ There is a simpler proof of the Marriage Thm and K-E which is a polynomial
+ time algorithm for finding what the theorems say exist.
+ Thinking about all of this in 1960, under Alan Goldman’s supervision, it
+ occurred to me that maybe a general predicate is in P whenever it is in
+ 
+\begin_inset Formula $\text{NP}∩\text{coNP}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+He liked that, and let me not worry so much about airports.
+ The convex hull of any finite set 
+\begin_inset Formula $Q$
+\end_inset
+
+ of vectors in the space of vectors, coordinatized by the edge-set 
+\begin_inset Formula $E$
+\end_inset
+
+ of graph 
+\begin_inset Formula $G$
+\end_inset
+
+, is a polytope, the bounded solution-set of a finite set 
+\begin_inset Formula $L$
+\end_inset
+
+ of linear inequalities.
+ Optimizing 
+\begin_inset Formula $cx$
+\end_inset
+
+ over members of 
+\begin_inset Formula $Q$
+\end_inset
+
+ is the same as optimizing 
+\begin_inset Formula $cx$
+\end_inset
+
+ subject to 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Normally for an easily described finite set 
+\begin_inset Formula $Q$
+\end_inset
+
+ of points in 
+\begin_inset Formula $R^{E}$
+\end_inset
+
+ , the number of inequalities needed is exponential relative to 
+\begin_inset Formula $│E│$
+\end_inset
+
+.
+ An arrangement of the girls and boys at a round banquet table so that each
+ is, on each side, next to someone loved, is the same as a TSP tour in the
+ graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose we want a TSP tour which optimizes the sum of love-weights on edges
+ in 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ The TSP, in a yes-no form, is given 
+\begin_inset Formula $t$
+\end_inset
+
+ = (a graph 
+\begin_inset Formula $G$
+\end_inset
+
+, a love-weight 
+\begin_inset Formula $c_{e}$
+\end_inset
+
+ for each edge 
+\begin_inset Formula $e$
+\end_inset
+
+, a tour 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+), then where 
+\begin_inset Formula $A(t)$
+\end_inset
+
+ is the predicate “
+\begin_inset Formula $H$
+\end_inset
+
+ is not the largest total love-weight tour in 
+\begin_inset Formula $G$
+\end_inset
+
+”, is 
+\begin_inset Formula $A(t)$
+\end_inset
+
+ true or false? This predicate 
+\begin_inset Formula $A(t)$
+\end_inset
+
+ is clearly in NP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Is it in coNP? TSP is represented by the set Q of the 0-1 vectors x of the
+ TSP tours in 
+\begin_inset Formula $G$
+\end_inset
+
+ and a linear function cx to be optimized over 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Is there an NP set 
+\begin_inset Formula $L$
+\end_inset
+
+ of linear inequalities such that optimizing cx over solutions to 
+\begin_inset Formula $L$
+\end_inset
+
+ is the same as optimizing cx over 
+\begin_inset Formula $Q$
+\end_inset
+
+? In 1954, George Dantzig, with Ray Fulkerson and Selmer Johnson, solved
+ a particular 48-city traveling salesman problem by using linear programming.
+ Their linear inequality system 
+\begin_inset Formula $L$
+\end_inset
+
+’ , which is satisfied by a 0,1 vector x if and only if x is the vector
+ of a TSP tour, is NP, though it is exponentially large.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unfortunately the solution-set of 
+\begin_inset Formula $L$
+\end_inset
+
+’ has some extreme points which are fractional rather than TSP tour vectors,
+ and so optimizing subject to 
+\begin_inset Formula $L$
+\end_inset
+
+’ might not be by a TSP tour.
+ Their work was a motivation for Ralph Gomory in 1958 to introduce cutting
+ plane methods for integer linear programming.
+ There was no mention of ‘easy’, meaning polynomially bounded time.
+ (Until my student Vasek Chatal, there was no stated theorem other than
+ that the algorithm is finite.) The fact that cuts and lp optimizations do
+ not commute created skepticism.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What is the “cut-depth” of a cutting plane method? The 1954 TSP paper of
+ Dantzig et al prompted me in 1961 to notice the simple result that Theorem.
+ If there is an NP description of the set 
+\begin_inset Formula $L$
+\end_inset
+
+ of inequalities describing the convex hull of finite point-set 
+\begin_inset Formula $Q$
+\end_inset
+
+, as well as an NP description of the members of 
+\begin_inset Formula $Q$
+\end_inset
+
+, then it does not matter that L is exponentially large in order to have
+ the predicate A(x) = [point x of Q is optimum over Q] in NP ∩ coNP.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And maybe that puts “optimize over 
+\begin_inset Formula $Q$
+\end_inset
+
+” algorithmically into 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ It seemed plausible that if there is an easy description of 
+\begin_inset Formula $Q$
+\end_inset
+
+ then there might be an easy description of a linear system, 
+\begin_inset Formula $L$
+\end_inset
+
+, describing the convex hull of 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ That is an important step toward an easy general algorithm for optimizing
+ over 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ I was never able to find an NP description of a linear system L whose solution-
+ set is the convex hull of the vectors of the TSP tours in a complete graph,
+ 
+\begin_inset Formula $G$
+\end_inset
+
+, and so I conjectured in 1966 that TSP is not in 
+\begin_inset Formula $P$
+\end_inset
+
+, and hence that 
+\begin_inset Formula $NP≠P$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The hypothesis 
+\begin_inset Formula $NP≠P$
+\end_inset
+
+ is now usefully presumed.
+ It is used all the time and its failure would be cataclysmic to all the
+ great work of math programming.
+ Finding a mathematical proof has defied enormous attention for over 50
+ years.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Having such a proof does not really matter since it is true as long as we
+ do not know a polytime algorithm for an NP complete problem.
+ Possibly there is no mathematical proof of 
+\begin_inset Formula $NP≠P$
+\end_inset
+
+.
+ It follows from work of Godel and Turing that most of true math does not
+ have any mathematical proof.
+ If I had been asked in 1966 I might have said that “
+\begin_inset Formula $NP≠P$
+\end_inset
+
+ is probably simple to prove by sorting out the formalities, but that would
+ not settle whether TSP is in P”.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However Dick Karp showed in 1972 that TSP is NP complete, and so 
+\begin_inset Formula $NP≠P$
+\end_inset
+
+ would indeed determine that TSP is not in P.
+ Throughout the 1960s , while looking for easy algorithms of course I found
+ some polytime reductions between problems, but I never dreamed that there
+ exist NP-complete problems.
+ It is now a cosmic tragedy that there being so many NP-complete problems
+ has even given NP a bad name, when NP itself is a wonderfully positive
+ thing.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+During the 1960s, as part of a search for TSP in 
+\begin_inset Formula $P$
+\end_inset
+
+, I did find some NP sets 
+\begin_inset Formula $Q$
+\end_inset
+
+ of points to have of convex-hull-determining NP linear systems, 
+\begin_inset Formula $L$
+\end_inset
+
+, and from that some 
+\begin_inset Formula $P$
+\end_inset
+
+ algorithms – like matchings and matroid intersections.
+ They were all hoped to be ingredients for solving TSP.
+ In 1961, my wonderful mentor Alan Goldman arranged through his wonderful
+ Princeton mentor, Professor Tucker, thesis supervisor of Nash’s equilibria
+ and much else, for me to be a junior participant in a Summer long workshop
+ at the RAND Corporation, across from Muscle Beach, down the street from
+ Hollywood.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seemingly every known combinatorist participated.
+ The National Bureau of Standards was being careful, possibly an after effect
+ of some McCarthyism at NBS, and so it refused Alan’s request that I attend
+ the workshop of this private government contractor, RAND.
+ Alan did not disapprove of my idea that I resign from NBS.
+ At the end of the workshop, NBS hired me back with a very good raise.
+ At the workshop I needed a successful example of the NP idea, such as the
+ non-bipartite matching problem.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The day before my scheduled lecture to the eminences I still did not have
+ it.
+ Then Eureka, I did! You shrink blossoms! So the lecture was a success.
+ It attracted discussion and lots of good attention.
+ Professor Tucker offered me a visiting research position at Princeton,
+ chairing his Combinatorics and Games Seminar.
+ And so my first glimpse of mathematical heaven was at the notorious RAND
+ Corporation – as exciting as the RAND Corporation’s Daniel Ellsberg revealing
+ the Pentagon Papers.
+ Alan’s wife Cynthia usually drove him to and from work, but occasionally
+ I would.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+During one of these inspiring drives Alan reminded me that there is an easy
+ algorithm for finding a min cost spanning tree in a graph.
+ He asked me “What does that have to do with linear programming?” This led
+ to my favorite theorem, the matroid-polytope intersection theorem.
+ A matroid 
+\begin_inset Formula $M$
+\end_inset
+
+ is an abstraction of the linearly independent subsets of the set 
+\begin_inset Formula $E$
+\end_inset
+
+ of columns of a matrix, 
+\begin_inset Formula $M$
+\end_inset
+
+: For any subset 
+\begin_inset Formula $S$
+\end_inset
+
+ of 
+\begin_inset Formula $E$
+\end_inset
+
+, every (inclusion) maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-independent subset 
+\begin_inset Formula $J$
+\end_inset
+
+ of 
+\begin_inset Formula $S$
+\end_inset
+
+ is the same size, called 
+\begin_inset Formula $rM(S)$
+\end_inset
+
+, the M-rank of set 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the forest edge-sets of a graph are the independent sets of a matroid
+ which is given by linear independence in a matrix over the field where
+ 
+\begin_inset Formula $1+1=0$
+\end_inset
+
+, and such that each column has two 1’s, we see that matroids do have an
+ interesting variety of structure.
+ The popular ‘greedy algorithm’, for finding an optimum total weight spanning
+ tree of a graph, generalizes in two ways: The Greedy Theorem.
+ For any matroid M on the set E and any weighting ce of its elements e,
+ “the greedy algorithm” finds the 0,1 vector x of an independent set of
+ M which maximizes cx in the polytope 
+\begin_inset Formula $P(M)={x≥0:foreverysubsetSofE,∑{xe:einS}≤rM(S)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Corollary.
+ 
+\series default
+The vertices of 
+\begin_inset Formula $P(M)$
+\end_inset
+
+ are the 0,1 vectors of the independent sets of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ (You should be ashamed if, instead of this, you teach only the Kruskal
+ spanning tree version, presented by Boruvka in 1931.) Suppose we have any
+ two matroids 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ on set 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general the ‘independence system’, 
+\begin_inset Formula $M_{1}∩M_{2}$
+\end_inset
+
+, consisting of sets independent in both 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ is not a matroid.
+ We want to describe the convex hull, say 
+\begin_inset Formula $P(M_{1}∩M_{2})$
+\end_inset
+
+, of the vectors of sets in 
+\begin_inset Formula $M_{1}∩M_{2}$
+\end_inset
+
+.
+ Every common vertex of any two polyhedra is a vertex of their intersection.
+ In general however, there will be other vertices as well.
+ It is rare for two polyhedra to fit together so neatly that the only vertices
+ of the intersection are the common vertices.
+ The Amazing Matroid Polytope Intersection Theorem: 
+\begin_inset Formula $P(M_{1}∩M_{2})=P(M_{1})∩P(M_{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The dual optimum is integers when the c of max cx over
+\begin_inset Formula $P(M_{1})∩P(M_{2})$
+\end_inset
+
+ is integers.
+ When the c is all ones we have the ‘Cardinality Matroid Intersection Theorem’:
+ max { 
+\begin_inset Formula $│J│:JεM_{1}∩M_{2}$
+\end_inset
+
+ } = min { 
+\begin_inset Formula $rM_{1}(S)+rM_{2}(E-S):SE$
+\end_inset
+
+ }.
+ ⊆ In other words, the following linear system is Totally Dual Integral
+ (TDI): [ x≥0; for every subset 
+\begin_inset Formula $S$
+\end_inset
+
+ of 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $∑{xe:einS}≤rM_{1}(S)$
+\end_inset
+
+ and 
+\begin_inset Formula $∑{xe:einS}≤rM_{2}2(S)]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proved by proving that a polynomial time algorithm more complicated than
+ the greedy algorithm maximizes any cx over 
+\begin_inset Formula $P(M_{1})∩P(M_{2})$
+\end_inset
+
+ by a common independen t set of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ , and the dual optimum is integers if the c of the primal objective cx
+ is integers.
+ The Konig-Egervary (K-E) Theorem [1931] about the optimum assignment problem
+ is a special case where each matroid, 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ , is a rainbow matroid, which means a subset 
+\begin_inset Formula $J$
+\end_inset
+
+ is independent in matroid 
+\begin_inset Formula $Mk$
+\end_inset
+
+ when the members of 
+\begin_inset Formula $J$
+\end_inset
+
+ have different Mk -colors, where for each 
+\begin_inset Formula $k=1or2$
+\end_inset
+
+, the set 
+\begin_inset Formula $E$
+\end_inset
+
+ of elements is Mk -colored, that is partitioned, in any way.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A novel instance of matroid intersection was the optimum (single) branching
+ problem: given a direct graph 
+\begin_inset Formula $G$
+\end_inset
+
+ with a specified root node 
+\begin_inset Formula $r$
+\end_inset
+
+ and with weights 
+\begin_inset Formula $ce$
+\end_inset
+
+ on the edges 
+\begin_inset Formula $e$
+\end_inset
+
+, find a directed spanning tree 
+\begin_inset Formula $T$
+\end_inset
+
+ rooted at 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula $Σce$
+\end_inset
+
+ over edges 
+\begin_inset Formula $e$
+\end_inset
+
+ in 
+\begin_inset Formula $T$
+\end_inset
+
+ is max (or min).
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges is in 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ when the edges are directed toward distinct nodes different from 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ A set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges is in 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ when it is the edge-set of a forest in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ The common bases of these matroids are the directed spanning trees rooted
+ at node 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the intersection of three matroids were nice then we could solve the
+ TSP problem of finding an optimum spanning directed path in 
+\begin_inset Formula $G$
+\end_inset
+
+ from node 
+\begin_inset Formula $r$
+\end_inset
+
+ to node s by taking matroid 
+\begin_inset Formula $M_{3}$
+\end_inset
+
+ to be where set 
+\begin_inset Formula $J$
+\end_inset
+
+ is independent when the edges of 
+\begin_inset Formula $J$
+\end_inset
+
+ are directed away from distinct nodes different from node 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I found the optimum branching solution by applying this obvious application
+ of matroid intersections.
+ A direct description of the algorithm is quite elegant.
+ I had a hunch that it would be more popular than general matroid intersections,
+ and it has been.
+ Karp and Fulkerson each presented different proofs of the algorithm, Bob
+ Tarjan refined the running time with data structures, and applications
+ have been presented.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I felt as did the algebraists of olden times who liked to hide their methods.
+ As part of 1960s counterculture, clearly the need have ‘results’ to get
+ worldly math position was a social illness.
+ (Indeed, most normal people leave math for this reason.) The Optimum Branching
+ Systems problem (OBS) is Given a digraph 
+\begin_inset Formula $G$
+\end_inset
+
+, specified root nodes 
+\begin_inset Formula $r(i)$
+\end_inset
+
+, and a cost for each edge of 
+\begin_inset Formula $G$
+\end_inset
+
+, find a least cost collection of edge-disjoint directed spanning trees
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+, rooted respectively at the nodes 
+\begin_inset Formula $r(i)$
+\end_inset
+
+, i.e., 
+\begin_inset Formula $r(i)$
+\end_inset
+
+-branchings in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OBS easily reduces to where all the root nodes,
+\begin_inset Formula $r(i)$
+\end_inset
+
+, are the same.
+ And so OBS can be more conveniently stated as Given a digraph 
+\begin_inset Formula $G$
+\end_inset
+
+, a specified root node 
+\begin_inset Formula $r$
+\end_inset
+
+, an integer 
+\begin_inset Formula $k>0$
+\end_inset
+
+, and a cost for each edge, find 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint directed spanning trees all rooted at node 
+\begin_inset Formula $r$
+\end_inset
+
+ which minimize the total cost of the edges used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The well known, widely treated, min cost network flow problem is a special
+ case of OBS.
+ However OBS does not reduce to it.
+ The min cost network flow problem is Given a digraph 
+\begin_inset Formula $G$
+\end_inset
+
+, a source node 
+\begin_inset Formula $r$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+, a sink node 
+\begin_inset Formula $t$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+, an integer 
+\begin_inset Formula $k$
+\end_inset
+
+, and edge costs, find 
+\begin_inset Formula $k$
+\end_inset
+
+ mutually edge-disjoint directed paths from 
+\begin_inset Formula $r$
+\end_inset
+
+ to 
+\begin_inset Formula $t$
+\end_inset
+
+ which minimizes the total cost of the edges used.
+ (An integer “capacity be on edge 
+\begin_inset Formula $e$
+\end_inset
+
+” is simulated by be edges in parallel.) Reduce the 
+\begin_inset Formula $k$
+\end_inset
+
+ flow problem to a 
+\begin_inset Formula $k$
+\end_inset
+
+ branching problem by adjoining cost-free edges from 
+\begin_inset Formula $t$
+\end_inset
+
+ to each node of 
+\begin_inset Formula $G$
+\end_inset
+
+ except 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ (This reduction takes the shortest path problem to a single branching problem.)
+ There is a polynomial time algorithm for OBS, also as an intersection of
+ two matroids.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, it is considerably more complicated than for a single optimum branching.
+ It requires additional theorems and algorithms.
+ Matroid intersection is the only approach known for solving OBS.
+ Unsuccessful attempts have been made to describe nicely a direct algorithm
+ for OBS.
+ Curiously, unlike the optimum single branching problem, the simplest way
+ known to describe an algorithm for OBS is by matroid intersection for general
+ matroids, but more than that is needed.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Matroid algorithms use subroutine sources of the matroids, M, which say
+ when a set is independent in 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ For OBS, matroid 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ is simple: a set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges is independent in 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ when none of them are directed toward root node 
+\begin_inset Formula $r$
+\end_inset
+
+ and at most 
+\begin_inset Formula $k$
+\end_inset
+
+ of them are directed toward any other node.
+ Matroid 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ is where a set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges is independent when it can be partitioned into the edge sets of
+ at most 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint forests in graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is not obvious that 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ a matroid.
+ And a polytime algorithm is not obvious for recognizing whether a set 
+\begin_inset Formula $J$
+\end_inset
+
+ can be partitioned into at most 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint forests in graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Besides the theorem that the edge-sets of forests in 
+\begin_inset Formula $G$
+\end_inset
+
+ are the independent sets of a matroid, we use the deeper Matroid Partition
+ Theorem that For any matroid 
+\begin_inset Formula $M$
+\end_inset
+
+, the sets partionable into k independent sets of 
+\begin_inset Formula $M$
+\end_inset
+
+ are the independent sets of a matroid 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ , and Either a set 
+\begin_inset Formula $J$
+\end_inset
+
+ of elements of 
+\begin_inset Formula $M$
+\end_inset
+
+ is partionable this way or else: there is a subset 
+\begin_inset Formula $S$
+\end_inset
+
+ of 
+\begin_inset Formula $J$
+\end_inset
+
+ such that 
+\begin_inset Formula $S$
+\end_inset
+
+ is bigger than 
+\begin_inset Formula $krM(S)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Of course both can not be true.) We use a non-obvious polytime matroid partition
+ing algorithm which proves this Matroid Partitioning Theorem.
+ That feeds the optimum matroid intersection algorithm for these matroids,
+ 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All of that gives us a good algorithm for finding an optimum set J of edges
+ which (1) can be partitioned into k sets where each has no edges into 
+\begin_inset Formula $r$
+\end_inset
+
+ , and one edge into each other node; (2) can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ spanning trees of graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ That does not mean that there is a partition of J into k sets which satisfies
+ both (1) and (2).
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Well, there is.
+ We will see that as another big theorem.
+ Rainbow Spanning Trees.
+ Given a graph G and any coloring of the edge-set 
+\begin_inset Formula $E$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+, a rainbow forest in 
+\begin_inset Formula $G$
+\end_inset
+
+ is a forest of 
+\begin_inset Formula $G$
+\end_inset
+
+ which uses any color at most once.
+ (*) Find if possible a set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges of 
+\begin_inset Formula $G$
+\end_inset
+
+ which can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint rainbow spanning trees of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ This is a known topic in graph theory.
+ (**) An r-branching in a directed 
+\begin_inset Formula $G$
+\end_inset
+
+ is the special case of rainbow spanning tree where each color is the set
+ of edges into a node of 
+\begin_inset Formula $G$
+\end_inset
+
+ different from root 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $k=1$
+\end_inset
+
+, (*), finding an optimum edge-set 
+\begin_inset Formula $J$
+\end_inset
+
+ which is a rainbow spanning tree of 
+\begin_inset Formula $G$
+\end_inset
+
+, whenever there one, is polynomial time, using matroid intersection.
+ For 
+\begin_inset Formula $k>1$
+\end_inset
+
+, (*) might be generally hard.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is probably NP complete.
+ However, God is sometimes kind.
+ In the case of (**) we can do (*).
+ This is a nifty theorem about edge-disjoint branchings in directed graphs.
+ We do not know a generalization to matroids, or to different ways of coloring
+ the edges.
+ It is interesting to compare the post-optimization of OBS with the post-optimiz
+ ation of mincost flow.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In well known algorithms for the mincost network flow problem (which in
+ fact can be easily reduced to the K-E optimum assignment problem) one finds
+ an optimum edge-set, say 
+\begin_inset Formula $J$
+\end_inset
+
+, which has 
+\begin_inset Formula $k$
+\end_inset
+
+ edges directed into the sink node 
+\begin_inset Formula $t$
+\end_inset
+
+, and 
+\begin_inset Formula $k$
+\end_inset
+
+ edges directed out of the source node 
+\begin_inset Formula $r$
+\end_inset
+
+, and, for every other node 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $J$
+\end_inset
+
+ has the same number direct out of 
+\begin_inset Formula $v$
+\end_inset
+
+ as directed into 
+\begin_inset Formula $v$
+\end_inset
+
+, and 
+\begin_inset Formula $J$
+\end_inset
+
+ has no directed cycles.
+ If you are dispatching 
+\begin_inset Formula $k$
+\end_inset
+
+ drivers you do not simply tell them to use only the roads in 
+\begin_inset Formula $J$
+\end_inset
+
+.
+ You partition 
+\begin_inset Formula $J$
+\end_inset
+
+ into 
+\begin_inset Formula $k$
+\end_inset
+
+ directed paths from 
+\begin_inset Formula $r$
+\end_inset
+
+ to 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ That is so easy to do that we sometimes forget to do it.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is analogous to solving OBS by finding an optimum set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges which satisfies (1) can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ sets such that each has none into 
+\begin_inset Formula $r$
+\end_inset
+
+ and one into each other node; (2) can be partitioned into k spanning trees
+ of graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is not quite as simple as for network flows to get a partition which
+ satisfies both (1) and (2).
+ But we can do it.
+ This can be seen as a corollary of an admirable generalization of the maxflow-m
+ incut theorem: It is not quite as simple as for network flows to get a
+ partition which satisfies both (1) and (2).
+ But we can do it.
+ This can be seen as a corollary of an admirable generalization of the maxflow-m
+ incut theorem with a polynomial time algorithmic proof: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The Disjoint Branching Theorem.
+ 
+\series default
+The max number of edge-disjoint spanning directed trees in 
+\begin_inset Formula $G$
+\end_inset
+
+, rooted at node r, equals the min size of a set 
+\begin_inset Formula $C$
+\end_inset
+
+ of edges in 
+\begin_inset Formula $G$
+\end_inset
+
+ which separates 
+\begin_inset Formula $r$
+\end_inset
+
+ from some non-empty set 
+\begin_inset Formula $S$
+\end_inset
+
+ of other nodes of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ (This means 
+\begin_inset Formula $C$
+\end_inset
+
+ is the set of edges directed into 
+\begin_inset Formula $S$
+\end_inset
+
+ from the node-complement of 
+\begin_inset Formula $S$
+\end_inset
+
+ which contains 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ It is called a cut.) Compare with the maxflow-mincut theorem: The max number
+ of edge-disjoint directed paths from node 
+\begin_inset Formula $r$
+\end_inset
+
+ to node t in network 
+\begin_inset Formula $G$
+\end_inset
+
+ equals the min size of a set 
+\begin_inset Formula $C$
+\end_inset
+
+ of edges in 
+\begin_inset Formula $G$
+\end_inset
+
+ which separate node 
+\begin_inset Formula $r$
+\end_inset
+
+ from node 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Corollary of The Disjoint Branching Theorem.
+ 
+\series default
+If (and of course only if) a set 
+\begin_inset Formula $J$
+\end_inset
+
+ of edges in directed graph 
+\begin_inset Formula $G$
+\end_inset
+
+ (2) can be partitioned into k spanning trees of graph 
+\begin_inset Formula $G$
+\end_inset
+
+, and (1) can be partitioned into k sets such that each set has none directed
+ into node 
+\begin_inset Formula $r$
+\end_inset
+
+ and one into each other node, then 
+\begin_inset Formula $J$
+\end_inset
+
+ can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ spanning directed trees rooted at node 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The various ingredients for solving OBS are in books on combinatorial optimizat
+ ion, but I’m still trying get people to do a good computer implementation.
+ It is clearly possible, but a bit complicated.
+ There is an enormous amount on refinement and implementation of “the blossom
+ algorithm” for optimum matchings but none for optimum matroid intersections.
+ I suppose that the subroutine oracle nature of matroid intersections is
+ scary.
+ 
+\end_layout
+
+\end_body
+\end_document

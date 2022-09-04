@@ -1,0 +1,1626 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%% If you insert a picture at the beginning of a paragraph, wrapfigure places the picture below the first line of the paragraph. To avoid that, insert the following code to the preamble: 
+\setlength{\intextsep}{0cm plus1cm minus1cm}
+
+%% The following two lines are to make section headings centered
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+%% The following two lines allow bullets to be further to the left. Removing these two lines will simply cause bullets to be further indented to the right:
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1.5cm
+\rightmargin 1cm
+\bottommargin 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Terminology
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+Directed tree:
+\series default
+ A directed graph that would be a tree if we ingored the directions of the
+ edges.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is the Wikipedia definition.
+ Alternative names that have been used by others include: polytree, oriented
+ tree, singly connected network, etc.
+ Note that the arcs do not have to all go in the same directions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+Arborescence: 
+\series default
+A directed tree with a 
+\begin_inset Quotes eld
+\end_inset
+
+root
+\begin_inset Quotes erd
+\end_inset
+
+ such that every node of it has a unique path to it from the root.
+ There's always exactly one root.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is the Wikipedia definition from Arborescence (graph theory) and from
+ Polytree.
+ Synonyms according to Wikipedia: directed rooted tree, out-arborescence,
+ out-tree, branching.
+ Wikipedia also says that some authors use arborescence to mean 
+\begin_inset Quotes eld
+\end_inset
+
+spanning directed tree of a directed graph
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Schrijver defines as a set of arcs B on the digraph D(V,A) such that (V,B)
+ is a rooted tree.
+ Korte & Vygen simply say it's a 
+\begin_inset Quotes eld
+\end_inset
+
+connected branching
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Branching:
+\series default
+ Schrijver: A subset of arcs such that there's no undirected cycles and
+ each node has at most one arc entering it.
+ Korte & Vygen: A directed graph becomes a forest if you remove all edge
+ directions, and such that each node has at most one arc entering it (same
+ as Schrijver but this includes the vertices, not just the arcs).
+ Wikipedia says that a branching is often defined as a forest of arborescences.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+Spanning subgraph
+\series default
+ of 
+\begin_inset Formula $D(V,A)$
+\end_inset
+
+: A subgraph 
+\begin_inset Formula $D(V,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This appears too simple.
+ Basically everything is spanning, including the empty set of edges (meaning
+ just the vertices and no edges...
+ doesn't seem meaningful in the context of OBS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The word 
+\begin_inset Quotes eld
+\end_inset
+
+spanning
+\begin_inset Quotes erd
+\end_inset
+
+ is used most commonly for the term 
+\begin_inset Quotes eld
+\end_inset
+
+spanning tree
+\begin_inset Quotes erd
+\end_inset
+
+ which needs to be connected, so it's not okay for 
+\series bold
+
+\begin_inset Formula $B$
+\end_inset
+
+ 
+\series default
+to be empty, for example (the edges have to 
+\begin_inset Quotes eld
+\end_inset
+
+span
+\begin_inset Quotes erd
+\end_inset
+
+ the graph).
+ However Wikipedia says that for 
+\begin_inset Quotes eld
+\end_inset
+
+spanning forest
+\begin_inset Quotes erd
+\end_inset
+
+ there's two competing definitions: one where the edges need to span the
+ graph, and one where they don't (which is how we defined it here, except
+ we allow cycles and a spanning forest would not).
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Full spanning forest
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+maximum spanning forest
+\begin_inset Quotes erd
+\end_inset
+
+ are sometimes used for the 
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+ definition of 
+\begin_inset Quotes eld
+\end_inset
+
+spanning forest
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+Branching system 
+\series default
+of 
+\begin_inset Formula $D(V,A)$
+\end_inset
+
+ with 
+\begin_inset Formula $k$
+\end_inset
+
+ specified root nodes: A spanning subgraph of 
+\begin_inset Formula $D$
+\end_inset
+
+ created by edge-disjoint arborescences rooted at the 
+\begin_inset Formula $k$
+\end_inset
+
+ root nodes.
+ Edge-disjoint means none of these arborescences share any edges.
+ Every node has at most 
+\begin_inset Formula $k$
+\end_inset
+
+ incoming edges (at most one from each arborescence).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is not just a 
+\begin_inset Quotes eld
+\end_inset
+
+branching
+\begin_inset Quotes erd
+\end_inset
+
+ when branching means 
+\begin_inset Quotes eld
+\end_inset
+
+forest of arborescences
+\begin_inset Quotes erd
+\end_inset
+
+ because the arborescences need to be edge-disjoint, and we need to span
+ the graph (but if the edge-disjoint forest of arborescences didn't span
+ the graph, we could just add the missing nodes as 
+\begin_inset Quotes eld
+\end_inset
+
+disconnected
+\begin_inset Quotes erd
+\end_inset
+
+ arborescences, so this isn't a big deal).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+Optimal branching system
+\series default
+ of a weighted digraph with 
+\begin_inset Formula $k$
+\end_inset
+
+ specified root nodes: the branching system with the lowest total weight.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+A 
+\begin_inset Quotes eld
+\end_inset
+
+trivial
+\begin_inset Quotes erd
+\end_inset
+
+ branching system is the one where we just have a collection of disconnected
+ vertices (total weight is 0).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Algorithm
+\end_layout
+
+\begin_layout Standard
+To find an OBS we need to find a min-cost set of edges which is both a basis
+ of matroid 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ (optimum matroid intersection problem)
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset space \negthickspace{}
+\end_inset
+
+
+\begin_inset Formula $M_{1}\negthickspace=\negthickspace(E,J_{1})$
+\end_inset
+
+ in which 
+\begin_inset Formula $j\in J_{1}$
+\end_inset
+
+ has no edges entering any root nodes, and at most
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ (at most? but corollary said 
+\begin_inset Quotes eld
+\end_inset
+
+exactly
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ edges entering each other node of the graph.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Edmonds says it's 
+\begin_inset Quotes eld
+\end_inset
+
+obvious
+\begin_inset Quotes erd
+\end_inset
+
+ that this is a matroid.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Is this only different from a branching system, by the fact that it doesn't
+ have to be spanning? What about edge-disjointedness? Also J_1 doesn't have
+ to be rooted: see 4-node,1-root example!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset space \negthickspace{}
+\end_inset
+
+
+\begin_inset Formula $M_{2}\negthickspace=\negthickspace(E,J_{2})$
+\end_inset
+
+ in which 
+\begin_inset Formula $j\in J_{2}$
+\end_inset
+
+ can be partitioned into at most 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\series bold
+\color red
+arborescences
+\series default
+\color inherit
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Edmonds says 
+\begin_inset Quotes eld
+\end_inset
+
+forests
+\begin_inset Quotes erd
+\end_inset
+
+ but we never defined forest.
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This being a matroid is a corollary of 
+\series bold
+matroid partitioning
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+So all we have to do is (after converting the weighted directed graph into
+ a weighted incidence matrix):
+\end_layout
+
+\begin_layout Itemize
+Find forests in the graph, by using Gaussian elimination in GF(2) to find
+ sets of columns which are linearly independent.
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+Use a matroid partitioning algorithm to recognize sets of columns which
+ are partitionable into 
+\begin_inset Formula $k$
+\end_inset
+
+ independent sets.
+ Matroid partitioning is used as a subroutine to identify independent sets
+ (the 
+\begin_inset Formula $J$
+\end_inset
+
+) of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ This gives us 
+\begin_inset Formula $J_{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Construct 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ (but don't necessarily store all of its elements).
+\end_layout
+
+\begin_layout Itemize
+Use weighted matroid intersection to find the 
+\begin_inset Formula $J\in J_{1}\cap J_{2}$
+\end_inset
+
+ with the smallest total weight.
+ Only consider elements of 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ that will also be in 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Examples:
+\end_layout
+
+\begin_layout Subsection
+3-nodes
+\end_layout
+
+\begin_layout Subsubsection
+1 root (it seems that J1 also should contain subsets of B1 and B2)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 3-node directed graph with 1 root.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_3node_1root.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+The branchings systems are: 
+\begin_inset Formula 
+\begin{align}
+B_{1} & =\{A,C\}\\
+B_{2} & =\{A,B\}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color red
+We also have that 
+\begin_inset Formula $J_{1}=J_{2}=\{B_{1},B_{2}\}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_3node_1root.pdf
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The branching systems are:
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,s_{1},s_{2}\},c(B_{1})=0}\\
+B_{2} & =\{rs_{2},rs_{1}\},c(B_{2})=-2\\
+B_{3} & =\{rs_{1},s_{1}s_{2}\},c(B_{3})=3\\
+\textcolor{red}{\ensuremath{B_{4}}} & \textcolor{red}{\ensuremath{=}\{rs_{1},s_{2}\},c(B_{4})=1}\\
+\textcolor{red}{\ensuremath{B_{5}}} & \textcolor{red}{\ensuremath{=}\{rs_{2},s_{1}\},c(B_{5})=-3.}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{5}$
+\end_inset
+
+ is the optimal branching system!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+2 roots
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 3-node directed graph with 2 roots.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_3node_2roots.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+The only branching system is:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\begin{equation}
+B=\{A\}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color red
+We also have that 
+\begin_inset Formula $J_{1}=J_{2}=B.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The branching systems are:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r,r_{2},t\},c(B_{1})=0}\\
+\textcolor{red}{\ensuremath{B_{2}}} & \textcolor{red}{\ensuremath{=}\{A,r_{2}\},c(B_{2})=1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{1}$
+\end_inset
+
+ is the optimal branching system! If 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ wasn't a root then we would also be allowed 
+\begin_inset Formula $B_{3}=\{A,C\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{4}=\{A,B\}$
+\end_inset
+
+, leading to 
+\begin_inset Formula $B_{3}$
+\end_inset
+
+ being the OBS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+4-nodes:
+\end_layout
+
+\begin_layout Subsubsection
+1 root
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 4-node directed graph with 1 root.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_4node_1root_simple.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+The branching systems are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -8mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\begin{align}
+B_{1} & =\{E,B,A\},\\
+B_{2} & =\{E,B,D\},\\
+B_{3} & =\{D,C,B\}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color red
+We also have that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -8mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+J_{1} & =\{B_{1},B_{2},B_{3},\{A,C,B\}\}\\
+J_{2} & =\{B_{1},B_{2},B_{3}\}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Since 
+\begin_inset Formula $J_{2}\subset J_{1},$
+\end_inset
+
+we know that 
+\begin_inset Formula $J_{1}\cap J_{2}=J_{2}$
+\end_inset
+
+, 
+\series bold
+\color red
+so the OBS will be the min-cost branching system in 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+.
+
+\series default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Subsubsection
+2 roots
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 4-node directed graph with 1 roots.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_4node_2roots_simple.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+There is only one branching system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -8mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\begin{align}
+B & =\{E,B,D,C\},
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color red
+We also have that: 
+\begin_inset Formula $J_{1}=J_{2}=B.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The branching systems are:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+\textcolor{red}{\ensuremath{B_{1}}} & \textcolor{red}{\ensuremath{=}\{r_{1},r_{2},s_{1},s_{2}\},c(B_{1})=0}\\
+B_{2} & =\{C,E,B\},c(B_{2})=\\
+\textcolor{red}{\ensuremath{B_{3}}} & \textcolor{red}{\ensuremath{=}\{CD,r_{2}\},c(B_{3})=}\\
+B_{4} & =\{C,BD\},c(B_{4})=\\
+\textcolor{red}{\ensuremath{B_{5}}} & \textcolor{red}{\ensuremath{=}\{C,r_{2},s_{2}\},c(B_{5})=}\\
+\textcolor{red}{\ensuremath{B_{6}}} & \textcolor{red}{\ensuremath{=}\{E,r_{2},s_{1}\},c(B_{6})=}\\
+\textcolor{red}{\ensuremath{B_{7}}} & \textcolor{red}{\ensuremath{=}\{BD,r_{1}\},c(B_{7})=}\\
+\textcolor{red}{\ensuremath{B_{8}}} & \textcolor{red}{\ensuremath{=}\{B,r_{1},r_{2}\},c(B_{8})=}\\
+B_{9} & =\{BD,E\},c(B_{9})=\\
+B_{10} & =\{BD,C\},c(B_{10})=\\
+B_{11} & =\{BD,E,C\},c(B_{11})=\\
+B_{12} & =\{E,CD,B\},c(B_{12})=\\
+\textcolor{red}{\ensuremath{B_{13}}} & \textcolor{red}{\ensuremath{=}\{B,C,s_{2}\},c(B_{13})=}\\
+\textcolor{red}{\ensuremath{B_{14}}} & \textcolor{red}{\ensuremath{=}\{E,CD,r_{2}\},c(B_{14})=}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+5-nodes:
+\end_layout
+
+\begin_layout Subsubsection
+2 roots (seems totally wrong)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of a 4-node directed graph with 1 roots.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_5node_2roots.pdf
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+The branching systems are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -8mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\begin{align}
+B_{1} & =\{B,C,A,H,D,E\},\\
+B_{2} & =\{B,C,D,E,H,I\},\\
+B_{3} & =\{C,D,I,A,H,E\}.
+\end{align}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\color red
+We also have that: 
+\begin_inset Formula $J_{1}=J_{2}=\{B_{1},B_{2},B_{3}\}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Convenient reduction of OBS:
+\series default
+ Find (if they exist) a least expensive set of 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\series default
+branchings which don't share any edges (edge-disjoint) all rooted at node
+ 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ There is a 
+\begin_inset Quotes eld
+\end_inset
+
+beautiful, direct, easy algorithm
+\begin_inset Quotes erd
+\end_inset
+
+ when 
+\begin_inset Formula $k=1,$
+\end_inset
+
+but we need matroid partitioning and intersections when 
+\begin_inset Formula $k>1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Disjoint Branchings Theorem: 
+\series default
+The maximum size of a set 
+\begin_inset Formula $B$
+\end_inset
+
+ of edge-disjoint 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+
+\series default
+-rooted spanning directed trees in 
+\begin_inset Formula $G$
+\end_inset
+
+ 
+\series bold
+equals
+\series default
+ the minimum size of a set 
+\begin_inset Formula $C$
+\end_inset
+
+ of edges of 
+\begin_inset Formula $G$
+\end_inset
+
+ which are directed into a set 
+\begin_inset Formula $S$
+\end_inset
+
+ of nodes such that 
+\begin_inset Formula $S$
+\end_inset
+
+ is non-empty and does not contain root node 
+\begin_inset Formula $r.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\max|B|=\min|C|,C=\{C\in G(E):C\text{ are directed into a set \ensuremath{S\in V(G)},\ensuremath{S\ne\emptyset},\ensuremath{r\notin S} }\}
+\end{equation}
+
+\end_inset
+
+Good algorithms for finding 
+\begin_inset Formula $B$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ were devised by Lovasz and by Tarjan.
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Corollary: 
+\series default
+If a set 
+\begin_inset Formula $D\in G(E)$
+\end_inset
+
+ such that:
+\end_layout
+
+\begin_layout Itemize
+(a) 
+\begin_inset Formula $D$
+\end_inset
+
+ has no edges entering 
+\begin_inset Formula $r,$
+\end_inset
+
+ and exactly 
+\begin_inset Formula $k$
+\end_inset
+
+ edges entering each other node of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ (
+\begin_inset Formula $D$
+\end_inset
+
+ is?) a basis of a matroid 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+(b) 
+\begin_inset Formula $D$
+\end_inset
+
+ can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint spanning trees of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ (
+\begin_inset Formula $D$
+\end_inset
+
+ is?) a basis of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+then, 
+\begin_inset Formula $D$
+\end_inset
+
+ can be partitioned into 
+\begin_inset Formula $k$
+\end_inset
+
+ edge-disjoint spanning trees of 
+\begin_inset Formula $G,$
+\end_inset
+
+ each rooted at 
+\begin_inset Formula $r.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Analogy: 
+\series default
+When the capacity of each edge is 1, a min-cost flow algorithm finds a set
+ of edges which still needs to be partitioned into edge-disjoint paths from
+ source to sink, but it's more complicated for spanning directed trees rooted
+ at node 
+\begin_inset Formula $r.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Theorem: Given n, k as natural numbers, where n is the number of nodes,
+ and k is the number of roots, then given that we have (n - 1)k + 1 edges
+ or more, then, there is no way to partition the graph into k forests with
+ all (n - 1)k + 1 edges.
+\end_layout
+
+\begin_layout Plain Layout
+Proof: Assume by contradiction that we can.
+ Then, since each forest must have at most n - 1 edges, then we have k(n
+ - 1) edges used on k forests.
+ But we have an extra edge, which contradicts the fact that we can partition
+ it into k forests.
+ Therefore, given (n - 1)k + 1 edges, we cannot have that edge set in M2.
+\end_layout
+
+\begin_layout Plain Layout
+So let’s now do an example after using the above theorem as a guide to ensure
+ that there is no way to partition the graph into k forests with all (n-1)k
+ + 1 edges.
+ So that J2 is not a subset of J1 and vice versa.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

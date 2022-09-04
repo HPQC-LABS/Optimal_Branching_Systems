@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://rbutterworth.nfshost.com/Me/programs/Matroid/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Matroid Partition</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Matroid partitioning python function.">
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0; padding: 0;
+		}
+		body { max-width: 60em; margin: .5em; color: #222; background-color: #DDD; }
+		h1, h2, h3 { margin: .5em; }
+		ol, ul { margin-left: 1.5em; }
+		p { margin-top: .5em; }
+		blockquote { margin: 1em; }
+		figure { border-width: .2em; border-style: solid; margin: 1em; height=100%; }
+		embed  { width: 100%; height: 44em; }
+		dl { margin-left: 1em; }
+		table { text-align: right; border-style: solid; margin: .5em; }
+		img { margin-left: 5%; width: 90%; max-width: 50em; }
+		pre, th, td { padding-left: 2em; }
+		header { text-align: center; }
+		.keyword { font-weight: bold; }
+	</style>
+</head>
+
+<body>
+	<header>
+	<h1>Matroid partitioning function</h1>
+	<p>
+		Ray Butterworth.
+		<br>
+		August 2020.
+	</p>
+	</header>
+
+	<section><h2>Function</h2>
+	<blockquote>
+		<code>partition_set_list = <span class="keyword">matroid.partition.set_list</span>(size, legal_subset_function)</code>
+		<dl>
+			<dt><code class="keyword">size</code></dt>
+			<dd>— Number of elements in the matroid.</dd>
+			<dt><code class="keyword">legal_subset_function</code><code>(set_of_indexes)</code></dt>
+			<dd>— Test whether the elements are a feasible subset.</dd>
+		</dl>
+	</blockquote>
+
+	<p>
+		This function is based mostly on the augmenting algorithm given in:
+		<cite><a href="https://dx.doi.org/10.1287/ijoc.4.1.70">
+			Jon Lee, Jennifer Ryan, (1992) Matroid Applications and Algorithms.  ORSA Journal on Computing 4(1):70-98.
+		</a></cite>
+	</p>
+	<ol>
+		<li>Create digraph with one node for each colour (initially none), and one uncoloured node for each matroid element.</li>
+		<li>Repeat until no uncoloured nodes:
+			<ol>
+				<li>Find uncoloured nodes.</li>
+				<li>Create edges of digraph.</li>
+				<li>Find shortest path from any uncoloured node to any dummy colour node.</li>
+				<li>Shift colours along augmenting path.</li>
+			</ol>
+		</li>
+	</ol>
+	</section>
+
+	<section><h2>Optimization</h2>
+	<p>
+		More than 90% of the time is spent processing the caller-supplied validation function, so callers should make the validation function as efficient as they can.
+	</p>
+	<p>
+	Since the efficiency of the <code>matroid.partition()</code> code itself is not significant, no <q>efficiency tricks</q> have been used, leaving the code obvious rather than fast.
+	</p>
+	<p>
+		The only way to <em>significantly</em> improve the overall efficiency of the algorithm is by reducing the number of calls to the validation function.
+		Fortunately, that isn't difficult.
+	</p>
+	<p>
+		The four step algorithm was originally presented so as to be mathematically obvious, but looking at the details of what actually happens reveals some minor changes that can greatly improve the performance.
+	</p>
+	<p>
+		(JIT) Building the entire directed graph at each iteration makes the process simpler to describe, and easier for theoreticians to visualize, but is in practice unnecessary.
+   By not constructing any part of the graph until it is actually needed, many of the validation function calls are eliminated.
+   So step #2 was simplified and incorporated into step 3 as a just-in-time, build-only-what-you-need, process.
+	</p>
+	<p>
+		(Trivial) Similarly, while building the graph in step #2, if at any time an edge is created directly between the start node and a colour node, the process can be cut short.
+		The start node can be immediately coloured and building the graph can be abandoned.
+	</p>
+	<p>
+		(Fill) When a new partition is created, rather than resuming the normal augmentation algorithm, directly testing each of the remaining uncoloured nodes can potentially find nodes that can be immediately added to the new partition.
+		(Note that this eliminates the possibility of trivial paths.)
+	</p>
+	<p>
+		(Init) Even more savings can be found if the number of partitions can be estimated ahead of time.
+		For instance, a K<sub>19</sub> graph can contain no partition with more than 18 edges without creating a circuit, so the maximum possible partition size is 18.
+		The graph contains 171 edges, and 171÷18 = 9.5, so at least 10 partitions will be required.
+		If the algorithm knows about this minimum, many validation calls can be eliminated. 
+	</p>
+	<p>
+		(Max) If the maximum partition size is known, this can be used to eliminate pointless calls to the validation function.
+	</p>
+	<p>
+		Its also possible to make use of matroid-specific knowledge within the validation function itself.
+		(E.g. "are these 27 edges acyclic?" in a K<sub>19</sub> graph will always be false regardless of which edges are given.)
+	</p>
+	</section>
+
+	<section><h2>Testing</h2>
+	<p>
+		Testing on a K<sub>19</sub> graph produced these results:
+	</p>
+	<table>
+
+		<tbody><tr><th>Optimization</th><th># Validation calls</th></tr>
+		<tr><td>Original:</td><td>2&nbsp;503&nbsp;200</td></tr>
+		<tr><td>Max:</td><td>2&nbsp;044&nbsp;338</td></tr>
+		<tr><td>JustInTime:</td><td>135&nbsp;193</td></tr>
+		<tr><td>JustInTime+Trivial:</td><td>134&nbsp;392</td></tr>
+		<tr><td>JustInTime+Max:</td><td>128&nbsp;415</td></tr>
+		<tr><td>JustInTime+Fill:</td><td>126&nbsp;884</td></tr>
+		<tr><td>JustInTime+Init:</td><td>68&nbsp;335</td></tr>
+		<tr><td>JustInTime+Init+Trivial:</td><td>98&nbsp;120</td></tr>
+		<tr><td>JustInTime+Init+Fill:</td><td>73&nbsp;042</td></tr>
+		<tr><td>JustInTime+Init+Fill+Max:</td><td>10&nbsp;551</td></tr>
+	</tbody></table>
+	<p>
+		with CPU times being reduced from 15 minutes down to 7 seconds.
+	</p>
+
+	<p>
+		Further tests of estimating the initial number of partitions produced these results:
+	</p>
+
+	<table>
+		<tbody><tr> <th>Estimate</th> <th>Calls</th> <th>With Max=18</th><th></th></tr>
+		<tr> <td>1</td> <td>126884</td> <td>120389</td> </tr>
+		<tr> <td>2</td> <td>126865</td> <td>120371</td> </tr>
+		<tr> <td>3</td> <td>125979</td> <td>119534</td> </tr>
+		<tr> <td>4</td> <td>122448</td> <td>116185</td> </tr>
+		<tr> <td>5</td> <td>118190</td> <td>112175</td> </tr>
+		<tr> <td>6</td> <td>114081</td> <td>108349</td> </tr>
+		<tr> <td>7</td> <td>102965</td> <td>97913</td> </tr>
+		<tr> <td>8</td> <td>81275</td> <td>77455</td> </tr>
+		<tr> <td>9</td> <td>50266</td> <td>48107</td> </tr>
+		<tr> <td>10</td> <td>64156</td> <td>61401</td> </tr>
+		<tr> <td>11</td> <td>41343</td> <td>39682</td> </tr>
+		<tr> <td>12</td> <td>68415</td> <td>65500</td> </tr>
+		<tr> <td>13</td> <td>49138</td> <td>47230</td> </tr>
+		<tr> <td>14</td> <td>73848</td> <td>70722</td> </tr>
+		<tr> <td>15</td> <td>58237</td> <td>56009</td> </tr>
+		<tr> <td>16</td> <td>73038</td> <td>69942</td> </tr>
+		<tr> <td>17</td> <td>55504</td> <td>53370</td> </tr>
+		<tr> <td>18</td> <td>73042</td> <td>69946</td> </tr>
+		<tr> <td>19</td> <td>55505</td> <td>53371</td> </tr>
+		<tr> <td>20</td> <td>73042</td> <td>69946</td> </tr>
+		<tr> <td>21</td> <td>55505</td> <td>53371</td> </tr>
+		<tr> <td></td> <td>…</td> <td></td> </tr>
+		<tr> <td>171</td> <td>55505</td> <td>53371</td> </tr>
+	</tbody></table>
+
+	<p>
+		Notice that:
+	</p>
+	<ul>
+		<li>The best case didn't occur when the estimate was correct (10), but when too big (11).</li>
+		<li>Of the estimates that were too small, only one was better than what was obtained with the correct number (10).</li>
+		<li>Of the estimates that were too large, the results were the same two values for all estimates after 17.</li>
+		<li>Even a ridiculously large estimate (171), allowing one partition for each node in the graph, didn't take much longer than the best case.</li>
+	</ul>
+
+	<p>
+		Other complete graphs produced the following results:
+	</p>
+	<ul>
+		<li>"Solve" is how many validation calls were required when using a large initial estimate for the number of partitions.</li>
+		<li>"Confirm" is how many validation calls were required when the minimum number of partitions was already known.</li>
+	</ul>
+	<table>
+		<tbody><tr> <th>K#</th> <th>Solve</th> <th>Partitions</th> <th>Confirm</th> <th>With Max=K#-1</th> </tr>
+		<tr> <td>3</td> <td>11</td> <td>2</td> <td>4</td> <td>3</td> </tr>
+		<tr> <td>4</td> <td>27</td> <td>2</td> <td>19</td> <td>15</td> </tr>
+		<tr> <td>5</td> <td>102</td> <td>3</td> <td>38</td> <td>31</td> </tr>
+		<tr> <td>6</td> <td>207</td> <td>3</td> <td>109</td> <td>94</td> </tr>
+		<tr> <td>7</td> <td>483</td> <td>4</td> <td>170</td> <td>151</td> </tr>
+		<tr> <td>8</td> <td>999</td> <td>4</td> <td>368</td> <td>333</td> </tr>
+		<tr> <td>9</td> <td>1662</td> <td>5</td> <td>509</td> <td>472</td> </tr>
+		<tr> <td>10</td> <td>3179</td> <td>5</td> <td>935</td> <td>869</td> </tr>
+		<tr> <td>11</td> <td>5792</td> <td>6</td> <td>1206</td> <td>1145</td> </tr>
+		<tr> <td>12</td> <td>6613</td> <td>6</td> <td>1991</td> <td>1881</td> </tr>
+		<tr> <td>13</td> <td>11890</td> <td>7</td> <td>2454</td> <td>2363</td> </tr>
+		<tr> <td>14</td> <td>14338</td> <td>7</td> <td>3759</td> <td>3590</td> </tr>
+		<tr> <td>15</td> <td>18238</td> <td>8</td> <td>4488</td> <td>4361</td> </tr>
+		<tr> <td>16</td> <td>33052</td> <td>8</td> <td>6504</td> <td>6259</td> </tr>
+		<tr> <td>17</td> <td>33035</td> <td>9</td> <td>7585</td> <td>7416</td> </tr>
+		<tr> <td>18</td> <td>58192</td> <td>9</td> <td>10533</td> <td>10193</td> </tr>
+		<tr> <td>19</td> <td>72111</td> <td>10</td> <td>12064</td> <td>11847</td> </tr>
+		<tr> <td>20</td> <td>74904</td> <td>10</td> <td>16195</td> <td>15739</td> </tr>
+		<tr> <td>30</td> <td>516524</td> <td>15</td> <td>84155</td> <td>82734</td> </tr>
+		<tr> <td>40</td> <td>2575419?</td> <td>20</td> <td>269440</td> <td>266229</td> </tr>
+		<tr> <td>50</td> <td>7290392?</td> <td>25</td> <td>662925</td> <td>656849</td> </tr>
+		<tr> <td>60</td> <td>?</td> <td>30</td> <td>1381735</td> <td>1371469</td> </tr>
+	</tbody></table>
+	</section>
+
+	<section><h2>Sample Program (acyclic partitions of K19)</h2>
+	<h3>Source:</h3>
+	<figure>
+		<embed type="text/x-python" src="K19.code">
+	</figure>
+
+	<h3>Results:</h3>
+	<figure>
+		<embed type="text/plain" src="K19.output">
+		<img src="./Matroid Partition_files/K19.png" alt="K19 graph with each partition a different colour.">
+	</figure>
+
+	<h2>Library Source</h2>
+	<figure>
+		<figcaption><h3>Original algorithm, 68 lines:</h3></figcaption>
+		<embed type="text/x-python" src="matroid/partition_basic.code">
+	</figure>
+
+	<figure>
+		<figcaption><h3>Optimized algorithm, 83 lines:</h3></figcaption>
+		<embed type="text/x-python" src="matroid/partition_optimized.code">
+	</figure>
+
+	<figure>
+		<figcaption><h3>Full version, 225 lines:</h3></figcaption>
+		<a href="https://rbutterworth.nfshost.com/Me/programs/Matroid/matroid/partition.code">Fully commented and configurable source.</a>
+	</figure>
+	</section>
+
+
+<script>mendeleyWebImporter = {
+  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+  open() { return this._call('open', []); },
+  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.5923996798469935', methodName, methodArgs }, 'https://rbutterworth.nfshost.com');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script></body></html>

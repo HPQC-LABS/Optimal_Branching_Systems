@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="http://www.nongnu.org/elyxer/">
+<meta name="create-date" content="2022-07-22">
+<link rel="stylesheet" href="http://elyxer.nongnu.org/lyx.css" type="text/css" media="all">
+<title>Converted document</title>
+</head>
+<body>
+<div id="globalWrapper">
+<h1 class="Section">
+<a class="toc" name="toc-Section-1">1</a> Terminology
+</h1>
+<div class="Unindented">
+<b>Directed tree:</b> A directed graph that would be a tree if we ingored the directions of the edges. 
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<div class="Indented">
+<b>Arborescence: </b>A directed tree with a &ldquo;root&rdquo; such that every node of it has a unique path to it from the root. There’s always exactly one root. 
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<div class="Indented">
+<b>Spanning subgraph</b> of <span class="formula"><i>D</i>(<i>V</i>, <i>A</i>)</span>: A subgraph <span class="formula"><i>D</i>(<i>V</i>, <i>B</i>)</span> such that <span class="formula"><i>B</i> ⊆ <i>A</i></span>.
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<div class="Indented">
+<b>Branching system </b>of <span class="formula"><i>D</i>(<i>V</i>, <i>A</i>)</span> with <span class="formula"><i>k</i></span> specified root nodes: A spanning subgraph of <span class="formula"><i>D</i></span> created by edge-disjoint arborescences rooted at the <span class="formula"><i>k</i></span> root nodes. Edge-disjoint means none of these arborescences share any edges. Every node has at most <span class="formula"><i>k</i></span> incoming edges (at most one from each arborescence). 
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<div class="Indented">
+<b>Optimal branching system</b> of a weighted digraph with <span class="formula"><i>k</i></span> specified root nodes: the branching system with the lowest total weight. 
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<h1 class="Section">
+<a class="toc" name="toc-Section-2">2</a> Algorithm
+</h1>
+<div class="Unindented">
+To find an OBS we need to find a min-cost set of edges which is both a basis of matroid <span class="formula"><i>M</i><sub>1</sub></span> and of <span class="formula"><i>M</i><sub>2</sub></span>:
+</div>
+<ul>
+<li>
+ <span class="formula"><i>M</i><sub>1</sub><span class="unknown">\negthickspace</span> = <span class="unknown">\negthickspace</span>(<i>E</i>, <i>J</i><sub>1</sub>)</span> in which <span class="formula"><i>j</i> ∈ <i>J</i><sub>1</sub></span> has no edges entering any root nodes, and at most <span class="formula"><i>k</i></span> edges entering each other node of the graph. 
+</li>
+<li>
+ <span class="formula"><i>M</i><sub>2</sub><span class="unknown">\negthickspace</span> = <span class="unknown">\negthickspace</span>(<i>E</i>, <i>J</i><sub>2</sub>)</span> in which <span class="formula"><i>j</i> ∈ <i>J</i><sub>2</sub></span> can be partitioned into at most <span class="formula"><i>k</i></span> <b><span class="red">arborescences</span></b>. 
+</li>
+
+</ul>
+<h1 class="Section">
+<a class="toc" name="toc-Section-3">3</a> Examples:
+</h1>
+<h2 class="Subsection">
+<a class="toc" name="toc-Subsection-3.1">3.1</a> 3-nodes
+</h2>
+<h3 class="Subsubsection">
+<a class="toc" name="toc-Subsubsection-3.1.1">3.1.1</a> 1 root (error in the graph! s1-&gt;s2 should be going in the opposite direction! ... Also it seems that J1 also should contain subsets of B1 and B2)
+</h3>
+<div class="Unindented">
+<div class="float">
+<a class="Label" name="Figure-1"> </a><div class="figure" style="max-width: 20%;">
+<div class="center">
+<img class="figure" src="fig_3node_1root.png" alt="figure fig_3node_1root.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<div class="Indented">
+<div class="defskip"> </div><div class="defskip"> </div>
+</div>
+<div class="Indented">
+<div class="center">
+The branchings systems are: <div class="formula">
+<a class="eqnumber" name="eq-1">(1) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>1</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>A</i>, <i>C</i>}
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>2</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>A</i>, <i>B</i>}
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<b><span class="red">We also have that <span class="formula"><i>J</i><sub>1</sub> = <i>J</i><sub>2</sub> = {<i>B</i><sub>1</sub>, <i>B</i><sub>2</sub>}.</span></span></b>
+</div>
+
+</div>
+<h3 class="Subsubsection">
+<a class="toc" name="toc-Subsubsection-3.1.2">3.1.2</a> 2 roots
+</h3>
+<div class="Unindented">
+<div class="float">
+<a class="Label" name="Figure-3"> </a><div class="figure" style="max-width: 20%;">
+<div class="PlainVisible">
+<div class="center">
+
+</div>
+<br>
+<div class="center">
+<img class="figure" src="fig_3node_2roots.png" alt="figure fig_3node_2roots.png">
+
+</div>
+<br>
+.<br>
+.
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+The only branching system is:
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<div class="formula">
+<a class="eqnumber" name="eq-3">(3) </a><i>B</i> = {<i>A</i>}.
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<b><span class="red">We also have that <span class="formula"><i>J</i><sub>1</sub> = <i>J</i><sub>2</sub> = <i>B</i>.</span></span></b>
+</div>
+
+</div>
+<h2 class="Subsection">
+<a class="toc" name="toc-Subsection-3.2">3.2</a> 4-nodes:
+</h2>
+<h3 class="Subsubsection">
+<a class="toc" name="toc-Subsubsection-3.2.1">3.2.1</a> 1 root
+</h3>
+<div class="Unindented">
+<div class="float">
+<a class="Label" name="Figure-4"> </a><div class="figure" style="max-width: 20%;">
+<div class="center">
+<img class="figure" src="fig_4node_1root_simple.png" alt="figure fig_4node_1root_simple.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: 2mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+The branching systems are:
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: -8mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<div class="formula">
+<a class="eqnumber" name="eq-5">(5) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>1</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>E</i>, <i>B</i>, <i>A</i>}, 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>2</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>E</i>, <i>B</i>, <i>D</i>}, 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>3</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>D</i>, <i>C</i>, <i>B</i>}.
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<b><span class="red">We also have that:</span></b>
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: -8mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="formula">
+<a class="eqnumber" name="eq-6">(6) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>J</i><sub>1</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>B</i><sub>1</sub>, <i>B</i><sub>2</sub>, <i>B</i><sub>3</sub>, {<i>A</i>, <i>C</i>, <i>B</i>}}
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>J</i><sub>2</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>B</i><sub>1</sub>, <i>B</i><sub>2</sub>, <i>B</i><sub>3</sub>}.
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+Since <span class="formula"><i>J</i><sub>2</sub> ⊂ <i>J</i><sub>1</sub>, </span>we know that <span class="formula"><i>J</i><sub>1</sub>∩<i>J</i><sub>2</sub> = <i>J</i><sub>2</sub></span>, <b><span class="red">so the OBS will be the min-cost branching system in <span class="formula"><i>J</i><sub>2</sub></span>.</span></b> 
+</div>
+
+</div>
+<h3 class="Subsubsection">
+<a class="toc" name="toc-Subsubsection-3.2.2">3.2.2</a> 2 roots (seems wrong since B is going into r2)
+</h3>
+<div class="Unindented">
+<div class="float">
+<a class="Label" name="Figure-5"> </a><div class="figure" style="max-width: 20%;">
+<div class="center">
+<img class="figure" src="fig_4node_2roots_simple.png" alt="figure fig_4node_2roots_simple.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: 2mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+There is only one branching system:
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: -8mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<div class="formula">
+<a class="eqnumber" name="eq-7">(7) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i>
+</span>
+<span class="arraycell align-l">
+ = {<i>E</i>, <i>B</i>, <i>D</i>, <i>C</i>}, 
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<b><span class="red">We also have that: <span class="formula"><i>J</i><sub>1</sub> = <i>J</i><sub>2</sub> = <i>B</i>.</span></span></b>
+</div>
+
+</div>
+<div class="Indented">
+<div class="defskip"> </div>
+</div>
+<h2 class="Subsection">
+<a class="toc" name="toc-Subsection-3.3">3.3</a> 5-nodes:
+</h2>
+<h3 class="Subsubsection">
+<a class="toc" name="toc-Subsubsection-3.3.1">3.3.1</a> 2 roots (seems totally wrong)
+</h3>
+<div class="Unindented">
+<div class="float">
+<a class="Label" name="Figure-6"> </a><div class="figure" style="max-width: 20%;">
+<div class="center">
+<img class="figure" src="fig_5node_2roots.png" alt="figure fig_5node_2roots.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: 2mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+The branching systems are:
+</div>
+
+</div>
+<div class="Indented">
+<div class="vspace" style="height: -8mm;">
+
+</div>
+
+</div>
+<div class="Indented">
+<div class="center">
+<div class="formula">
+<a class="eqnumber" name="eq-9">(9) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>1</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>B</i>, <i>C</i>, <i>A</i>, <i>H</i>, <i>D</i>, <i>E</i>}, 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>2</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>B</i>, <i>C</i>, <i>D</i>, <i>E</i>, <i>H</i>, <i>I</i>}, 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+ 
+</span>
+<span class="arraycell align-l">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-r">
+<i>B</i><sub>3</sub>
+</span>
+<span class="arraycell align-l">
+ = {<i>C</i>, <i>D</i>, <i>I</i>, <i>A</i>, <i>H</i>, <i>E</i>}.
+</span>
+
+</span>
+</span>
+</div>
+<br>
+<b><span class="red">We also have that: <span class="formula"><i>J</i><sub>1</sub> = <i>J</i><sub>2</sub> = {<i>B</i><sub>1</sub>, <i>B</i><sub>2</sub>, <i>B</i><sub>3</sub>}.</span></span></b>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

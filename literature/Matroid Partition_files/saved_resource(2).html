@@ -1,0 +1,71 @@
+
+<!-- saved from url=(0081)https://rbutterworth.nfshost.com/Me/programs/Matroid/matroid/partition_basic.code -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">#!/usr/bin/env python3
+import networkx as nx
+def set_list(size, allowed):
+    partition_list = []
+    def partition_node(color_index):
+        return -color_index - 1
+    def color_it(node_index, color_index):
+        partition_list[color_index].add(node_index)
+        partition_index_map[node_index] = color_index
+    def get_uncolored_node_list(only_one=False):
+        uncolored_set = set(range(size))
+        for partition in partition_list:
+            uncolored_set -= partition
+        if not only_one:
+            return list(uncolored_set)
+        return list(uncolored_set)[0] if len(uncolored_set) else None
+    def create_partition():
+        partition_list.append(set())
+        color_index = len(partition_list)
+        D.add_node(-color_index)
+    def remove_last_partition():
+        partition_list.remove(partition_list[len(partition_list)-1])
+    def augment():
+        first_node = get_uncolored_node_list(only_one=True)
+        if first_node == None:
+            return False
+        for index, partition in enumerate(partition_list):
+            for new_node in set(range(size)) - partition:
+                if allowed(partition.union({new_node})):
+                    D.add_edge(new_node, -index - 1)
+                for old in partition:
+                    if allowed(partition.union({new_node}) - {old}):
+                        D.add_edge(new_node,old)
+        def find_path(start_node):
+            back_link_map = {}
+            todo_list = [start_node]
+            for node in todo_list:
+                for adjacent in sorted(D[node]):
+                    if not adjacent in back_link_map:
+                        back_link_map[adjacent] = node
+                        todo_list.append(adjacent)
+                    if adjacent &lt; 0:
+                        result = []
+                        while adjacent != start_node:
+                            result = [adjacent] + result
+                            adjacent = back_link_map[adjacent]
+                        return [start_node] + result
+            return []
+        path = find_path(first_node)
+        if len(path) == 0:
+            create_partition()
+            return True
+        for index in range(1, len(path) - 1):
+            color_to, color_from = path[index - 1], path[index]
+            color_partition = partition_index_map[color_from]
+            partition_list[color_partition].remove(color_from)
+            partition_index_map.pop(color_from)
+            color_it(color_to, color_partition)
+        new_color = partition_node(path[len(path) - 1])
+        new_node = path[len(path) - 2]
+        color_it(new_node, new_color)
+        return True
+    partition_index_map = {}
+    D = nx.DiGraph()
+    D.add_nodes_from(range(size))
+    while augment():
+         D = nx.create_empty_copy(D)
+    return partition_list
+</pre></body></html>
