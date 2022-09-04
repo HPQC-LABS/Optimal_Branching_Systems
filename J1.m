@@ -10,6 +10,6 @@ Are_more_than_k_edges_entering_a_nonRoot = sum(sum(G_incoming_to_nonRoots,2)>nnz
 % Are_more_than_k_edges_entering_a_nonRoot = sum(sum((1-roots)'.*(G>0),2)>nnz(roots))     % non-0 if there's more than k edges entering any non-root, 0 otherwise. [more comapct]
   
 are_we_in_J1 = (Are_any_edges_entering_a_root+Are_more_than_k_edges_entering_a_nonRoot)<1 % 1 if the input is in J1, 0 otherwise.
-% are_we_in_J1 = (sum(sum(roots'.*(G>0)))>0 + sum(sum((1-roots)'.*(G>0),2)>nnz(roots)))<1 % 1 if the input is in J1, 0 otherwise. [more compact]
+% !!! [not quite working] !!! % are_we_in_J1 = (sum(sum(roots'.*(G>0)))>0 + sum(sum((1-roots)'.*(G>0),2)>nnz(roots)))<1 % 1 if the input is in J1, 0 otherwise. [more compact] Something minor must be wrong because this doesn't work for: G=[0 0 0 0 ; 1 1 0 0 ; 0 0 0 0 ; 0 1 1 1]; roots=[1 0 1 0];
 
 % roots=[1 0 1 0]; G = rand(4,6).*(-1).^randi([0,1],4,6)                                  % A simple example on which you can test the above code!!!
