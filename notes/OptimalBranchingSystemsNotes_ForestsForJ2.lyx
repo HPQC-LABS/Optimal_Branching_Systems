@@ -500,7 +500,7 @@ trivial
 \end_layout
 
 \begin_layout Section
-Algorithm
+Algorithm overview
 \end_layout
 
 \begin_layout Standard
@@ -516,7 +516,10 @@ remove anything entering a root
 \begin_inset Quotes erd
 \end_inset
 
-
+.
+ Those things won't be part of a branching system anyway! This will save
+ cost in terms of # of edges.
+ Any branching system will have (n-k)k edges.
 \end_layout
 
 \end_inset
@@ -1018,7 +1021,7 @@ An example of a 3-node directed graph with 2 roots.
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_3node_2roots.pdf
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/3node_2roots/fig_3node_2roots.pdf
 	width 20text%
 
 \end_inset
@@ -1490,7 +1493,7 @@ An example of a 4-node directed graph with 1 roots.
 
 
 \begin_inset Graphics
-	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/fig_4node_2roots_simple.pdf
+	filename /home/nike2/Optimal_Branching_Systems_ehuan2_metapost-figs/metapostfigs/4node_2roots_simple/fig_4node_2roots_simple.pdf
 	width 20text%
 
 \end_inset

@@ -500,7 +500,7 @@ trivial
 \end_layout
 
 \begin_layout Section
-Algorithm
+Algorithm overview
 \end_layout
 
 \begin_layout Standard
@@ -516,7 +516,10 @@ remove anything entering a root
 \begin_inset Quotes erd
 \end_inset
 
-
+.
+ Those things won't be part of a branching system anyway! This will save
+ cost in terms of # of edges.
+ Any branching system will have (n-k)k edges.
 \end_layout
 
 \end_inset
@@ -2109,6 +2112,16 @@ have more than
 
 \emph on
 .
+ 
+\emph default
+If we simply remove the 7-edge member of 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ in Eq.
+ 3.40, we will get that Eq.
+ 3.43 is the set of all desired branching systems.
+ This also works for 7 more graphs that I'm working on adding to this document.
 \end_layout
 
 \begin_layout Standard
